@@ -16,5 +16,5 @@ rootProject.name = "NewsHub"
 include ':app'
 include ':core'
 include ':core:theme'
-include ':app:navigation'
-include ':app:splash_screen'
+include ':navigation'
+include ':splash_screen'

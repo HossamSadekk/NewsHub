@@ -41,6 +41,6 @@ object DI {
 object Modules {
     const val APP = ":app"
     const val Theme = ":core:theme"
-    const val NAVIGATION = ":app:navigation"
-    const val SPLASHSCREEN = ":app:splash_screen"
+    const val NAVIGATION = ":navigation"
+    const val SPLASHSCREEN = ":splash_screen"
 }
