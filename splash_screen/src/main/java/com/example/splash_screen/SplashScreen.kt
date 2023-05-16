@@ -35,7 +35,7 @@ fun SplashScreen() {
         Text(
             text = "News Hub",
             modifier = Modifier.align(Alignment.BottomCenter).padding(vertical = 22.dp),
-            color = Color.Blue,
+            color = MaterialTheme.colors.primary,
             fontSize = 16.sp,
         )
         if (logoAnimationState.isAtEnd && logoAnimationState.isPlaying) {
