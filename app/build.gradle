@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+
 }
 
 android {
@@ -61,4 +64,14 @@ dependencies {
     testImplementation(AndroidTestingLib.ComposeTestJunit)
     debugImplementation(AndroidComposeDebugLib.ComposeUiTooling)
     debugImplementation(AndroidComposeDebugLib.UiTestManifest)
+
+    implementation(Navigation.NavigationCompose)
+    implementation(DI.Hilt)
+    implementation(DI.Hilt_Navigation)
+    kapt(DI.Hilt_Compiler)
+
+    implementation project(Modules.Theme)
+    implementation project(Modules.NAVIGATION)
+    implementation project(Modules.SPLASHSCREEN)
+
 }
