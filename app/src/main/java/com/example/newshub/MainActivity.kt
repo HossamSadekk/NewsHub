@@ -4,31 +4,29 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.collectAsState
+import androidx.navigation.compose.rememberNavController
+import com.NavigationManager
+import com.example.newshub.navigation.RootNavigationGraph
 import com.example.newshub.ui.theme.NewsHubTheme
-
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject
+    lateinit var navigationManager: NavigationManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             NewsHubTheme {
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Text(
-                        text = "NewsHub",
-                        style = MaterialTheme.typography.h5,
-                        modifier = Modifier.padding(16.dp)
-                    )
+                val navController = rememberNavController()
+                navigationManager.commands.collectAsState().value.also { command ->
+                    if (command.destination.isNotEmpty()) {
+                        navController.navigate(command.destination)
+                    }
                 }
-
-
+                RootNavigationGraph(navController)
             }
         }
     }

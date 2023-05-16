@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "NewsHub"
 include ':app'
+include ':core'
+include ':core:theme'
+include ':app:navigation'
+include ':app:splash_screen'
