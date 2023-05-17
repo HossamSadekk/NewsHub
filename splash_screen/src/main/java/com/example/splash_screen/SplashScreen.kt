@@ -1,16 +1,16 @@
 package com.example.splash_screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
@@ -23,7 +23,7 @@ fun SplashScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colors.primary)
+            .background(MaterialTheme.colors.primaryVariant)
     ) {
         val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.news))
         val logoAnimationState =
@@ -31,6 +31,19 @@ fun SplashScreen() {
         LottieAnimation(
             composition = composition,
             progress = { logoAnimationState.progress }
+        )
+        Spacer(
+            Modifier
+                .fillMaxWidth()
+                .height(67.dp)
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            MaterialTheme.colors.primaryVariant,
+                            MaterialTheme.colors.secondary
+                        )
+                    )
+                ).align(Alignment.BottomCenter)
         )
         Text(
             text = "News Hub",
