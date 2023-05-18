@@ -13,13 +13,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.NavigationManager
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
+import com.example.splash_screen.presentation.SplashScreenViewModel
+import javax.inject.Inject
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(viewModel: SplashScreenViewModel = hiltViewModel()) {
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -52,7 +57,7 @@ fun SplashScreen() {
             fontSize = 16.sp,
         )
         if (logoAnimationState.isAtEnd && logoAnimationState.isPlaying) {
-            // navController.navigate(Screen.Home.route)
+            viewModel.navigate()
         }
     }
 }

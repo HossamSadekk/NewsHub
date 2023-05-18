@@ -72,6 +72,7 @@ dependencies {
 
     implementation project(Modules.Theme)
     implementation project(Modules.NAVIGATION)
+    implementation project(Modules.ONBOARDING)
     implementation project(Modules.SPLASHSCREEN)
 
 }
