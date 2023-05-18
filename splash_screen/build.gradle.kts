@@ -52,6 +52,7 @@ dependencies {
     implementation(SupportLib.ComposeUiToolingPreview)
     implementation(SupportLib.ComposeMaterial)
     implementation(Animation.Lottie)
+    implementation(project(mapOf("path" to ":navigation")))
 
     testImplementation(TestingLib.Junit)
     testImplementation(AndroidTestingLib.JunitExt)
@@ -64,5 +65,7 @@ dependencies {
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
     kapt(DI.Hilt_Compiler)
+
+
 
 }

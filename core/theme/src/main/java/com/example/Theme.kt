@@ -13,9 +13,9 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 
 private val DarkColorPalette = darkColors(
-    primary = White,
+    primary = Black,
     primaryVariant = Orange,
-    onPrimary = White,
+    onPrimary = Orange,
     secondary = Orange2,
     secondaryVariant = RedDark,
     onSecondary = Black,

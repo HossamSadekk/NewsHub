@@ -3,6 +3,7 @@ import java.awt.SplashScreen
 object SupportLib {
     const val CoreKtx = "androidx.core:core-ktx:1.7.0"
     const val LifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+    const val LifecycleRuntimeCompose = "androidx.lifecycle:lifecycle-runtime-compose:2.6.0-beta01"
     const val ActivityCompose = "androidx.activity:activity-compose:1.3.1"
     const val ComposeUi = "androidx.compose.ui:ui:1.2.0"
     const val ComposeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:1.2.0"
@@ -18,6 +19,10 @@ object Animation {
 
 object Navigation {
     const val NavigationCompose = "androidx.navigation:navigation-compose:2.5.3"
+}
+object Pager {
+    const val ComposePager = "com.google.accompanist:accompanist-pager:0.23.1"
+    const val HorizontalPagerIndicator  = "com.google.accompanist:accompanist-pager-indicators:0.23.1"
 }
 
 object AndroidTestingLib {
@@ -43,4 +48,5 @@ object Modules {
     const val Theme = ":core:theme"
     const val NAVIGATION = ":navigation"
     const val SPLASHSCREEN = ":splash_screen"
+    const val ONBOARDING = ":on_boarding"
 }
