@@ -2,12 +2,14 @@ package com.example.newshub
 
 import android.os.Bundle
 import android.util.Log
+import android.window.SplashScreen
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.navigation.compose.rememberNavController
 import com.NavigationManager
+import com.OnBoardingDirections
 import com.SplashScreenDirections
 import com.example.newshub.navigation.RootNavigationGraph
 import com.example.newshub.ui.theme.NewsHubTheme
@@ -30,15 +32,20 @@ class MainActivity : ComponentActivity() {
                  * initialized yet so it throw a null pointer exception when navController try to navigate
                  * **/
                 LaunchedEffect(navigationManager.commands) {
+
                     navigationManager.commands.collect { command ->
                         if (
                             command.destination.isNotEmpty()
                         ) {
-                            navController.navigate(command.destination) {
-                                popUpTo(SplashScreenDirections.splashScreen.destination) {
-                                    inclusive = true
-                                }
+                            navController.navigate(command.destination){
+                                navController.popBackStack(SplashScreenDirections.splashScreen.destination, true)
+                                // Clear the back stack up to the OnBoarding screen
+                                navController.popBackStack(OnBoardingDirections.onBoarding.destination, true)
+                                // Clear the back stack
+                                launchSingleTop = true
+                                restoreState = true
                             }
+
                         }
                     }
                 }

@@ -28,6 +28,14 @@ object SplashScreenDirections {
         override val destination = "on_boarding_screen"
     }
 
+    val homeScreen = object : NavigationCommand {
+
+        override val arguments = emptyList<NamedNavArgument>()
+
+        override val destination = "homeScreen"
+
+    }
+
     val Default = object : NavigationCommand {
 
         override val arguments = emptyList<NamedNavArgument>()

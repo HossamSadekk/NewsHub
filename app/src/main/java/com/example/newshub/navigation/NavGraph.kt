@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.OnBoardingDirections
 import com.SplashScreenDirections
 import com.example.on_boarding.presentation.OnBoardingScreen
 import com.example.splash_screen.SplashScreen
@@ -22,9 +23,10 @@ fun RootNavigationGraph(navController: NavHostController) {
                 SplashScreen()
 
             }
-            composable(SplashScreenDirections.onBoarding.destination) {
+            composable(OnBoardingDirections.onBoarding.destination) {
                OnBoardingScreen()
             }
+            homeNavGraph()
         }
 
     }

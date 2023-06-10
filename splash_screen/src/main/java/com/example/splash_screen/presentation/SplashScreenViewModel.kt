@@ -20,7 +20,7 @@ class SplashScreenViewModel @Inject constructor(
             getOnBoardingStateUseCase().collect() { state ->
                 if (state) {
                     // it means that user already saw the on boarding screen
-                    Log.d("TAG", "--")
+                    navigationManager.navigate(SplashScreenDirections.homeScreen)
                 } else {
                     Log.d("TAG", "false")
                     navigationManager.navigate(SplashScreenDirections.onBoarding)
