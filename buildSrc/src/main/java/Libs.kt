@@ -41,11 +41,14 @@ object DI {
     const val Hilt_Compiler = "com.google.dagger:hilt-android-compiler:2.44"
     const val Hilt_Navigation = "androidx.hilt:hilt-navigation-compose:1.0.0"
 }
-
+object Local {
+    const val Preferences_DataStore = "androidx.datastore:datastore-preferences:1.0.0"
+}
 
 object Modules {
     const val APP = ":app"
     const val Theme = ":core:theme"
+    const val STORAGE = ":core:local:storage"
     const val NAVIGATION = ":navigation"
     const val SPLASHSCREEN = ":splash_screen"
     const val ONBOARDING = ":on_boarding"
