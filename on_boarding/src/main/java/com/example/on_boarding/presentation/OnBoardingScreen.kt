@@ -19,12 +19,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.pager.*
 import com.google.accompanist.pager.R
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalPagerApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
     // the list of pages
     val pages = listOf(
         OnBoardingPage.First,
@@ -61,7 +62,8 @@ fun OnBoardingScreen() {
             modifier = Modifier.weight(1f),
             pagerState = pagerState
         ) {
-           // On Button Click
+            // when user click on finish button
+            viewModel.navigateToHomeScreen()
         }
     }
 

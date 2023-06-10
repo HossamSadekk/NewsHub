@@ -52,4 +52,5 @@ object Modules {
     const val NAVIGATION = ":navigation"
     const val SPLASHSCREEN = ":splash_screen"
     const val ONBOARDING = ":on_boarding"
+    const val Home = ":home"
 }

@@ -4,11 +4,18 @@ import androidx.navigation.NamedNavArgument
 
 object OnBoardingDirections {
 
-    val root = object : NavigationCommand {
+    val onBoarding = object : NavigationCommand {
 
         override val arguments = emptyList<NamedNavArgument>()
 
-        override val destination = "onBoarding"
+        override val destination = "on_boarding_screen"
+    }
+
+    val homeScreen = object : NavigationCommand {
+
+        override val arguments = emptyList<NamedNavArgument>()
+
+        override val destination = "homeScreen"
 
     }
 }

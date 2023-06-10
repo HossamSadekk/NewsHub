@@ -49,6 +49,8 @@ dependencies {
     implementation(SupportLib.ComposeUi)
     implementation(SupportLib.ComposeUiToolingPreview)
     implementation(SupportLib.ComposeMaterial)
+    implementation(project(Modules.STORAGE))
+    implementation(project(Modules.NAVIGATION))
 
     implementation(Pager.ComposePager)
     implementation(Pager.HorizontalPagerIndicator)

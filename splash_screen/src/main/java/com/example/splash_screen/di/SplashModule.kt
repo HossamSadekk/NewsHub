@@ -11,7 +11,6 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 class SplashModule {
-
     @Provides
     fun provideSplashRepository(preferencesManager: PreferencesManager):SplashScreenRepository =
         SplashScreenRepositoryImpl(preferencesManager)
