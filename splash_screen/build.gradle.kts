@@ -53,7 +53,7 @@ dependencies {
     implementation(SupportLib.ComposeMaterial)
     implementation(Animation.Lottie)
     implementation(project(mapOf("path" to ":navigation")))
-
+    implementation(project(Modules.STORAGE))
     testImplementation(TestingLib.Junit)
     testImplementation(AndroidTestingLib.JunitExt)
     testImplementation(AndroidTestingLib.EspressoCore)
