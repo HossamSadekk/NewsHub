@@ -18,7 +18,6 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.splash_screen.presentation.SplashScreenViewModel
-import javax.inject.Inject
 
 @Composable
 fun SplashScreen(viewModel: SplashScreenViewModel = hiltViewModel()) {
