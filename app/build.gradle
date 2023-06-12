@@ -66,6 +66,7 @@ dependencies {
     debugImplementation(AndroidComposeDebugLib.UiTestManifest)
 
     implementation(Navigation.NavigationCompose)
+    implementation("com.jakewharton.timber:timber:5.0.1")
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
     kapt(DI.Hilt_Compiler)
@@ -75,5 +76,6 @@ dependencies {
     implementation project(Modules.ONBOARDING)
     implementation project(Modules.SPLASHSCREEN)
     implementation project(Modules.Home)
+    implementation project(Modules.REMOTE)
 
 }

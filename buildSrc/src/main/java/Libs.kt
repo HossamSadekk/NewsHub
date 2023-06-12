@@ -45,6 +45,16 @@ object Local {
     const val Preferences_DataStore = "androidx.datastore:datastore-preferences:1.0.0"
 }
 
+object Remote {
+    const val retrofit2 = "com.squareup.retrofit2:retrofit:2.7.2"
+    const val retrofit2_converter = "com.squareup.retrofit2:converter-gson:2.7.2"
+    const val okhttp3 = "com.squareup.okhttp3:okhttp:3.6.0"
+}
+
+object Logger {
+    const val Timber = "com.jakewharton.timber:timber:5.0.1"
+}
+
 object Modules {
     const val APP = ":app"
     const val Theme = ":core:theme"
@@ -53,4 +63,5 @@ object Modules {
     const val SPLASHSCREEN = ":splash_screen"
     const val ONBOARDING = ":on_boarding"
     const val Home = ":home"
+    const val REMOTE = ":core:remote"
 }
