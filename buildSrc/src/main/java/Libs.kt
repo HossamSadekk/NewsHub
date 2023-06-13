@@ -64,4 +64,5 @@ object Modules {
     const val ONBOARDING = ":on_boarding"
     const val Home = ":home"
     const val REMOTE = ":core:remote"
+    const val MODEL = ":core:model"
 }

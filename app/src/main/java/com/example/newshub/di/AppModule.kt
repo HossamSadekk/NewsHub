@@ -17,4 +17,10 @@ object AppModule {
     fun provideIsDebug(): Boolean {
         return BuildConfig.DEBUG
     }
+    @Provides
+    @Singleton
+    @Named("API_KEY")
+    fun provideAPIKEY(): String {
+        return BuildConfig.API_KEY
+    }
 }
