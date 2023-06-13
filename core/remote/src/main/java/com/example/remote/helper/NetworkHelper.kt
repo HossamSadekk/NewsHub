@@ -1,6 +1,7 @@
 package com.example.remote.helper
 
 import android.content.Context
+import com.example.remote.interceptors.ApiKeyInterceptor
 import com.example.remote.interceptors.ForceAppCacheInterceptor
 import com.example.remote.interceptors.HttpDetectInterceptor
 import com.example.remote.interceptors.HttpRequestInterceptor
@@ -33,9 +34,14 @@ fun createForceAppCacheInterceptor(context: Context): ForceAppCacheInterceptor {
     return ForceAppCacheInterceptor(context)
 }
 
+fun createApiKeyInterceptor(apiKey: String): ApiKeyInterceptor {
+    return ApiKeyInterceptor(apiKey)
+}
+
 fun createOkHttpClient(
     isDev: Boolean,
-    context: Context
+    context: Context,
+    apiKey: String
 ): OkHttpClient {
     return OkHttpClient.Builder().apply {
         cache(createCache(context))
@@ -44,6 +50,7 @@ fun createOkHttpClient(
         }
         addInterceptor(createHttpRequestInterceptor())
         addInterceptor(createForceAppCacheInterceptor(context))
+        addInterceptor(createApiKeyInterceptor(apiKey))
         //specifies the maximum amount of time that OkHttp will wait for the server to respond to the connection request
         connectTimeout(CLIENT_TIME_OUT, TimeUnit.SECONDS)
         //controls how long OkHttp will wait for the response data to be sent by the server.
