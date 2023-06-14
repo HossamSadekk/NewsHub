@@ -45,4 +45,7 @@ dependencies {
     implementation(DI.Hilt_Navigation)
     kapt(DI.Hilt_Compiler)
 
+    implementation(Pagination.Paging)
+
+
 }

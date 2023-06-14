@@ -55,6 +55,10 @@ object Logger {
     const val Timber = "com.jakewharton.timber:timber:5.0.1"
 }
 
+object Pagination {
+    const val Paging = "androidx.paging:paging-runtime:3.1.1"
+}
+
 object Modules {
     const val APP = ":app"
     const val Theme = ":core:theme"
@@ -65,4 +69,5 @@ object Modules {
     const val Home = ":home"
     const val REMOTE = ":core:remote"
     const val MODEL = ":core:model"
+    const val FEED = ":feed"
 }
