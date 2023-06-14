@@ -81,5 +81,6 @@ dependencies {
     implementation project(Modules.SPLASHSCREEN)
     implementation project(Modules.Home)
     implementation project(Modules.REMOTE)
+    implementation project(Modules.FEED)
 
 }
