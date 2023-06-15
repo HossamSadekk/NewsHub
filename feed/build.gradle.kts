@@ -40,6 +40,7 @@ dependencies {
 
     implementation(project(Modules.MODEL))
     implementation(project(Modules.REMOTE))
+    implementation(project(Modules.COMMON))
 
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)

@@ -69,5 +69,6 @@ object Modules {
     const val Home = ":home"
     const val REMOTE = ":core:remote"
     const val MODEL = ":core:model"
+    const val COMMON = ":core:common"
     const val FEED = ":feed"
 }
