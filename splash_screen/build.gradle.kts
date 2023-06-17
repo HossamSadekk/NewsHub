@@ -52,8 +52,11 @@ dependencies {
     implementation(SupportLib.ComposeUiToolingPreview)
     implementation(SupportLib.ComposeMaterial)
     implementation(Animation.Lottie)
-    implementation(project(mapOf("path" to ":navigation")))
+
     implementation(project(Modules.STORAGE))
+    implementation(project(Modules.COMMON))
+    implementation(project(mapOf("path" to ":navigation")))
+
     testImplementation(TestingLib.Junit)
     testImplementation(AndroidTestingLib.JunitExt)
     testImplementation(AndroidTestingLib.EspressoCore)
@@ -67,5 +70,6 @@ dependencies {
     kapt(DI.Hilt_Compiler)
 
 
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
 }

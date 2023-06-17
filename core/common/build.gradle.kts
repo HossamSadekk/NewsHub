@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -35,5 +37,11 @@ android {
 
 dependencies {
     implementation(Pagination.Paging)
+    implementation(Logger.Timber)
+    implementation(DI.Hilt)
+    implementation(DI.Hilt_Navigation)
+    kapt(DI.Hilt_Compiler)
+    implementation(SupportLib.ComposeMaterial)
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
 }

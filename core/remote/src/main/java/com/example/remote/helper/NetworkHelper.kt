@@ -3,7 +3,6 @@ package com.example.remote.helper
 import android.content.Context
 import com.example.remote.interceptors.ApiKeyInterceptor
 import com.example.remote.interceptors.ForceAppCacheInterceptor
-import com.example.remote.interceptors.HttpDetectInterceptor
 import com.example.remote.interceptors.HttpRequestInterceptor
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -26,9 +25,6 @@ fun createHttpRequestInterceptor(): HttpRequestInterceptor {
     return HttpRequestInterceptor()
 }
 
-fun createHttpDetectInterceptor(): HttpDetectInterceptor {
-    return HttpDetectInterceptor()
-}
 
 fun createForceAppCacheInterceptor(context: Context): ForceAppCacheInterceptor {
     return ForceAppCacheInterceptor(context)
@@ -39,17 +35,10 @@ fun createApiKeyInterceptor(apiKey: String): ApiKeyInterceptor {
 }
 
 fun createOkHttpClient(
-    isDev: Boolean,
-    context: Context,
     apiKey: String
 ): OkHttpClient {
     return OkHttpClient.Builder().apply {
-        cache(createCache(context))
-        if (isDev) {
-            addInterceptor(createHttpDetectInterceptor())
-        }
         addInterceptor(createHttpRequestInterceptor())
-        addInterceptor(createForceAppCacheInterceptor(context))
         addInterceptor(createApiKeyInterceptor(apiKey))
         //specifies the maximum amount of time that OkHttp will wait for the server to respond to the connection request
         connectTimeout(CLIENT_TIME_OUT, TimeUnit.SECONDS)

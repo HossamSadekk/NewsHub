@@ -39,10 +39,10 @@ val DarkTypography = Typography(
         fontSize = 18.sp
     ),
     h6 = TextStyle(
-        fontFamily = RalewayFonts,
+        fontFamily = RalewayFonts ,
         fontWeight = FontWeight.Bold,
         color = White,
-        fontSize = 16.sp
+        fontSize = 30.sp
     ),
     body1 = TextStyle(
         fontFamily = RalewayFonts,
@@ -60,7 +60,7 @@ val DarkTypography = Typography(
         fontFamily = RalewayFonts,
         fontWeight = FontWeight.Medium,
         color = White,
-        fontSize = 14.sp
+        fontSize = 16.sp
     ),
     button = TextStyle(
         fontFamily = FontFamily.Default,
