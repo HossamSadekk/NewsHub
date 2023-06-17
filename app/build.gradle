@@ -68,6 +68,7 @@ dependencies {
     testImplementation(AndroidTestingLib.ComposeTestJunit)
     debugImplementation(AndroidComposeDebugLib.ComposeUiTooling)
     debugImplementation(AndroidComposeDebugLib.UiTestManifest)
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
     implementation(Navigation.NavigationCompose)
     implementation("com.jakewharton.timber:timber:5.0.1")

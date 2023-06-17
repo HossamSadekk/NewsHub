@@ -11,5 +11,8 @@ class FeedRepositoryImpl @Inject constructor(private val newsService: NewsApi) :
         country: String,
         pageSize: Int,
         page: Int
-    ): ArticlesResponse = newsService.getTopHeadlines(country, pageSize, page)
+    ): ArticlesResponse
+    = newsService.getTopHeadlines(country, pageSize, page)
+
+
 }

@@ -8,6 +8,7 @@ object SupportLib {
     const val ComposeUi = "androidx.compose.ui:ui:1.2.0"
     const val ComposeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:1.2.0"
     const val ComposeMaterial = "androidx.compose.material:material:1.2.0"
+    const val ComposeLifecycle = "androidx.lifecycle:lifecycle-runtime-compose:2.6.0"
 }
 object TestingLib {
     const val Junit = "junit:junit:4.13.2"
@@ -54,9 +55,13 @@ object Remote {
 object Logger {
     const val Timber = "com.jakewharton.timber:timber:5.0.1"
 }
+object ImageLoader {
+    const val coil = "io.coil-kt:coil-compose:2.4.0"
+}
 
 object Pagination {
     const val Paging = "androidx.paging:paging-runtime:3.1.1"
+    const val Paging_compose = "androidx.paging:paging-compose:3.2.0-beta01"
 }
 
 object Modules {

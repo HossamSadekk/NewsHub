@@ -57,6 +57,9 @@ dependencies {
     debugImplementation(AndroidComposeDebugLib.ComposeUiTooling)
     debugImplementation(AndroidComposeDebugLib.UiTestManifest)
 
+    implementation(project(Modules.FEED))
+
+
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
     kapt(DI.Hilt_Compiler)

@@ -21,22 +21,19 @@ object RemoteModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(
-        @ApplicationContext context: Context,
-        @Named(value = "isDebug") isDev: Boolean,
         @Named(value = "API_KEY") apiKey: String
     ): OkHttpClient {
         return createOkHttpClient(
-            context = context,
-            isDev = isDev,
             apiKey = apiKey
         )
     }
 
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit =
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

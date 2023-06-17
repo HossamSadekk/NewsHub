@@ -1,11 +1,13 @@
 package com.example.feed.domain.pagination
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.common.pagination.BasePagingSource
 import com.example.feed.domain.repository.FeedRepository
 import com.example.model.dto.ArticleDto
 import com.example.model.dto.toArticleDtoList
+import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
 
@@ -20,6 +22,8 @@ class TopHeadlinesPagingSource @Inject constructor(private val feedRepository: F
                 pageSize = params.loadSize,
                 page = position
             )
+            Timber.d(response.articles.size.toString())
+
             val articles = response.articles.toArticleDtoList()
 
             LoadResult.Page(
@@ -28,6 +32,7 @@ class TopHeadlinesPagingSource @Inject constructor(private val feedRepository: F
                 nextKey = if (articles.isEmpty()) null else position + 1
             )
         } catch (exception: IOException) {
+            Timber.d(exception.toString())
             // IOException for network failures.
             return LoadResult.Error(exception)
         }
