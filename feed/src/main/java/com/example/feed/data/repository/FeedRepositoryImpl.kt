@@ -1,8 +1,8 @@
 package com.example.feed.data.repository
 
 import com.example.feed.domain.repository.FeedRepository
-import com.example.model.dto.ArticleDto
-import com.example.model.remote.ArticlesResponse
+import com.example.model.remote.articles.ArticlesResponse
+import com.example.model.remote.sources.SourcesResponse
 import com.example.remote.service.NewsApi
 import javax.inject.Inject
 
@@ -14,5 +14,6 @@ class FeedRepositoryImpl @Inject constructor(private val newsService: NewsApi) :
     ): ArticlesResponse
     = newsService.getTopHeadlines(country, pageSize, page)
 
+    override suspend fun getSources() : SourcesResponse = newsService.getSources()
 
 }

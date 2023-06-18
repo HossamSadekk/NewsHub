@@ -1,11 +1,8 @@
 package com.example.feed.domain.pagination
 
-import android.util.Log
-import androidx.paging.PagingSource
-import androidx.paging.PagingState
 import com.example.common.pagination.BasePagingSource
 import com.example.feed.domain.repository.FeedRepository
-import com.example.model.dto.ArticleDto
+import com.example.model.dto.article.ArticleDto
 import com.example.model.dto.toArticleDtoList
 import timber.log.Timber
 import java.io.IOException

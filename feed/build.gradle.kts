@@ -4,6 +4,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
     id("kotlin-android-extensions")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -51,12 +52,16 @@ dependencies {
     implementation(SupportLib.ComposeMaterial)
     implementation(SupportLib.ComposeLifecycle)
 
+    implementation (platform("com.google.firebase:firebase-bom:26.7.0"))
+    implementation ("com.google.firebase:firebase-firestore")
     implementation(project(Modules.MODEL))
     implementation(project(Modules.REMOTE))
     implementation(project(Modules.COMMON))
 
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
+    implementation("com.google.firebase:firebase-common-ktx:20.1.0")
+    implementation("com.google.firebase:firebase-storage-ktx:20.0.1")
     kapt(DI.Hilt_Compiler)
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
     implementation(ImageLoader.coil)

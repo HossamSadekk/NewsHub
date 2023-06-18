@@ -2,10 +2,10 @@ package com.example.common.mvvm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.common.extension.DataState
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
 abstract class Mvvm<T> : ViewModel() {
@@ -24,14 +24,18 @@ abstract class Mvvm<T> : ViewModel() {
         viewModelScope.launch(handler, block = block)
     }
 
-    protected suspend fun <T> call(
-        callFlow: Flow<T>,
+    protected suspend fun <T> execute(
+        callFlow: Flow<DataState<T>>,
         completionHandler: (collect: T) -> Unit = {}
     ) {
         callFlow
+            .onStart { startLoading() }
             .catch { handleError(it) }
-            .collect {
-                completionHandler(it)
+            .collect { state ->
+                when (state) {
+                    is DataState.Error -> handleError(state.error)
+                    is DataState.Success -> completionHandler.invoke(state.result)
+                }
             }
     }
 

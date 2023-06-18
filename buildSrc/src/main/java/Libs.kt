@@ -13,6 +13,10 @@ object SupportLib {
 object TestingLib {
     const val Junit = "junit:junit:4.13.2"
 }
+object Firebase {
+    const val firebasebom = "com.google.firebase:firebase-bom:32.1.1"
+    const val firebasestorage = "com.google.firebase:firebase-storage-ktx"
+}
 
 object Animation {
     const val Lottie = "com.airbnb.android:lottie-compose:5.2.0"

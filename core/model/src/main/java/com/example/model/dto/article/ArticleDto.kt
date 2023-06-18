@@ -1,4 +1,4 @@
-package com.example.model.dto
+package com.example.model.dto.article
 
 
 data class ArticleDto(
