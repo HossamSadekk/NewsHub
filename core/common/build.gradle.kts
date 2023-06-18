@@ -30,18 +30,30 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0"
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
+    implementation(SupportLib.ActivityCompose)
+    implementation(SupportLib.ComposeUi)
+    implementation(SupportLib.ComposeUiToolingPreview)
+    implementation(SupportLib.ComposeLifecycle)
     implementation(Pagination.Paging)
     implementation(Logger.Timber)
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
     kapt(DI.Hilt_Compiler)
     implementation(SupportLib.ComposeMaterial)
+    implementation(Animation.Lottie)
+
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
 }

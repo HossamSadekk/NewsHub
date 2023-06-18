@@ -39,7 +39,11 @@ fun FeedContent(viewState: FeedViewState,feedViewModel: FeedViewModel) {
 
             item {
                 CategoryTitle("Sources", topPadding = 20.dp, bottomPadding = 20.dp)
+                SourcesItems(viewState)
+            }
 
+            item {
+                CategoryTitle("Everything", topPadding = 20.dp, bottomPadding = 20.dp)
             }
 
 

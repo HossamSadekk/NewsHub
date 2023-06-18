@@ -3,6 +3,7 @@ package com.example.remote.interceptors
 import okhttp3.Interceptor
 import okhttp3.Response
 import timber.log.Timber
+import java.io.IOException
 
 class HttpRequestInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
