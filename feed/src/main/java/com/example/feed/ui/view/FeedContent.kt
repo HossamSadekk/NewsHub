@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.feed.ui.FeedViewModel
 import com.example.feed.ui.FeedViewState
+import com.example.feed.ui.view.everythingComponent.Categories
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 
@@ -44,6 +45,11 @@ fun FeedContent(viewState: FeedViewState,feedViewModel: FeedViewModel) {
 
             item {
                 CategoryTitle("Everything", topPadding = 20.dp, bottomPadding = 20.dp)
+                Categories(categories = feedViewModel.categoriesState.value ,
+                selectedCategory = feedViewModel.selectedCategory.value, onSelectCategory = {
+                    category ->
+                        feedViewModel.setCategory(category)
+                    })
             }
 
 
