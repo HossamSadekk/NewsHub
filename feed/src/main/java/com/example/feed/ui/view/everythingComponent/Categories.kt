@@ -24,7 +24,7 @@ fun Categories(
     selectedCategory: String,
 ) {
     LazyRow(
-        Modifier.fillMaxWidth().padding(start = 3.dp),
+        Modifier.fillMaxWidth().padding(start = 7.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items(categories.size) {

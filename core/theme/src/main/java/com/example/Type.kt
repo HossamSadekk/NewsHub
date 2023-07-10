@@ -60,7 +60,7 @@ val DarkTypography = Typography(
         fontFamily = RalewayFonts,
         fontWeight = FontWeight.Medium,
         color = White,
-        fontSize = 16.sp
+        fontSize = 9.sp
     ),
     button = TextStyle(
         fontFamily = FontFamily.Default,
@@ -69,9 +69,10 @@ val DarkTypography = Typography(
         fontSize = 14.sp
     ),
     caption = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
+        fontFamily = RalewayFonts,
+        fontWeight = FontWeight.Bold,
+        color = White,
+        fontSize = 15.sp
     )
 )
 
@@ -129,7 +130,7 @@ val LightTypography = Typography(
         fontFamily = RalewayFonts,
         fontWeight = FontWeight.Medium,
         color = Black,
-        fontSize = 14.sp
+        fontSize = 9.sp
     ),
     button = TextStyle(
         fontFamily = FontFamily.Default,
@@ -138,9 +139,9 @@ val LightTypography = Typography(
         fontSize = 14.sp
     ),
     caption = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        color = Black,
-        fontSize = 12.sp
+        fontFamily = RalewayFonts,
+        fontWeight = FontWeight.Bold,
+        color = White,
+        fontSize = 15.sp
     )
 )
