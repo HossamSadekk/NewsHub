@@ -29,6 +29,15 @@ class FeedViewModel @Inject constructor(
     private val _uiStateFeed = MutableStateFlow<FeedViewState>(FeedViewState())
     val uiStateFeed: StateFlow<FeedViewState> = _uiStateFeed
 
+    private val _categoriesState = mutableStateOf(FeedViewState().categoriesList)
+    val categoriesState: State<List<String>> = _categoriesState
+
+    private val _selectedCategory = mutableStateOf("All")
+    val selectedCategory: State<String> = _selectedCategory
+    fun setCategory(value: String) {
+        _selectedCategory.value = value
+    }
+
 
     init {
         startLoading()
@@ -77,7 +86,7 @@ class FeedViewModel @Inject constructor(
         _uiState.value = BaseViewState.Loading
     }
 
-    fun refreshScreen(){
+    fun refreshScreen() {
         loadTopHeadlines()
         loadSources()
     }
