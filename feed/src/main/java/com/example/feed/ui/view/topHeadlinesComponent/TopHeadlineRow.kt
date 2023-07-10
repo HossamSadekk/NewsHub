@@ -72,7 +72,7 @@ fun TopHeadlineRow(
             ) {
                 Text(
                     text = if (articleDto.title.isEmpty()) "No Title" else articleDto.title,
-                    style = MaterialTheme.typography.subtitle1
+                    style = MaterialTheme.typography.caption,
                 )
             }
         }

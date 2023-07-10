@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.emptyFlow
 
 data class FeedViewState(
     val topHeadlines: Flow<PagingData<ArticleDto>> = emptyFlow(),
+    val articles: Flow<PagingData<ArticleDto>> = emptyFlow(),
     val sourcesList: List<SourceDto> = emptyList(),
     val categoriesList: List<String> = categories,
     val isLoading: Boolean = false,
@@ -33,6 +34,7 @@ data class FeedViewState(
 
 sealed class FeedEvent {
     object LoadTopHeadlines : FeedEvent()
+    object LoadArticles : FeedEvent()
     object LoadSourcesList : FeedEvent()
     object RefreshScreen : FeedEvent()
 }

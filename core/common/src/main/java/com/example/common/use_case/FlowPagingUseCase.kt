@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.flowOn
 
 abstract class FlowPagingUseCase<ReturnType : Any> {
 
-    abstract fun execute(): Flow<PagingData<ReturnType>>
+    abstract fun execute(parameter: String? = null): Flow<PagingData<ReturnType>>
 
-    operator fun invoke(): Flow<PagingData<ReturnType>> = execute()
+    operator fun invoke(parameter: String? = null): Flow<PagingData<ReturnType>> = execute(parameter)
         .flowOn(Dispatchers.IO)
 }

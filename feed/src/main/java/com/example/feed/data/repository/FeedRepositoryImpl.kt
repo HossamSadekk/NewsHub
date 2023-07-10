@@ -11,9 +11,11 @@ class FeedRepositoryImpl @Inject constructor(private val newsService: NewsApi) :
         country: String,
         pageSize: Int,
         page: Int
-    ): ArticlesResponse
-    = newsService.getTopHeadlines(country, pageSize, page)
+    ): ArticlesResponse = newsService.getTopHeadlines(country, pageSize, page)
 
-    override suspend fun getSources() : SourcesResponse = newsService.getSources()
+    override suspend fun getArticles(query: String): ArticlesResponse =
+        newsService.getArticles(query)
+
+    override suspend fun getSources(): SourcesResponse = newsService.getSources()
 
 }

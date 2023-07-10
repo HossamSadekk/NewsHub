@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.example.common.mvvm.Mvvm
+import com.example.feed.domain.use_case.GetArticlesUseCase
 import com.example.feed.domain.use_case.GetSourcesUseCase
 import com.example.feed.domain.use_case.GetTopHeadlinesUseCase
 import com.example.feed.ui.view.LoadingTopheadlines
@@ -20,7 +21,8 @@ import javax.inject.Inject
 @HiltViewModel
 class FeedViewModel @Inject constructor(
     private val getTopHeadlinesUseCase: GetTopHeadlinesUseCase,
-    private val getSourcesUseCase: GetSourcesUseCase
+    private val getSourcesUseCase: GetSourcesUseCase,
+    private val getArticlesUseCase: GetArticlesUseCase
 ) :
     Mvvm<FeedEvent>() {
     private val _uiState = MutableStateFlow<BaseViewState>(BaseViewState.Loading)
@@ -43,6 +45,7 @@ class FeedViewModel @Inject constructor(
         startLoading()
         loadTopHeadlines()
         loadSources()
+        loadArticles()
     }
 
     override fun onTriggerEvent(eventType: FeedEvent) {
@@ -50,6 +53,11 @@ class FeedViewModel @Inject constructor(
             is FeedEvent.LoadTopHeadlines -> {
                 loadTopHeadlines()
             }
+
+            is FeedEvent.LoadArticles -> {
+                loadArticles()
+            }
+
             is FeedEvent.LoadSourcesList -> {
                 loadSources()
             }
@@ -65,6 +73,14 @@ class FeedViewModel @Inject constructor(
         _uiState.value = BaseViewState.Data
         _uiStateFeed.update {
             it.copy(topHeadlines = pagedTopHeadlines)
+        }
+    }
+
+    private fun loadArticles() = safeLaunch {
+        val pagedArticles = getArticlesUseCase(selectedCategory.value).cachedIn(viewModelScope)
+        _uiState.value = BaseViewState.Data
+        _uiStateFeed.update {
+            it.copy(articles = pagedArticles)
         }
     }
 
@@ -86,9 +102,10 @@ class FeedViewModel @Inject constructor(
         _uiState.value = BaseViewState.Loading
     }
 
-    fun refreshScreen() {
+    private fun refreshScreen() {
         loadTopHeadlines()
         loadSources()
+        loadArticles()
     }
 
 
