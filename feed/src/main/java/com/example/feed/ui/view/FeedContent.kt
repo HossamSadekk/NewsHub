@@ -15,7 +15,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.example.common.widget.ShimmerItem
 import com.example.feed.ui.FeedEvent
 import com.example.feed.ui.FeedViewModel
 import com.example.feed.ui.FeedViewState
@@ -59,11 +61,21 @@ fun FeedContent(viewState: FeedViewState, feedViewModel: FeedViewModel) {
                     })
                 Spacer(modifier = Modifier.height(20.dp))
             }
-            items(articles.itemCount){
-                articles[it]?.let { article ->
-                    ArticleRow(articleDto = article, onDetailClick = {
+            // displaying the everything section.
+            when (articles.loadState.refresh) {
+                is LoadState.Loading -> {
+                    items(20) {
+                        ShimmerItem()
+                    }
+                }
+                else -> {
+                    items(articles.itemCount) {
+                        articles[it]?.let { article ->
+                            ArticleRow(articleDto = article, onDetailClick = {
 
-                    })
+                            })
+                        }
+                    }
                 }
             }
 
