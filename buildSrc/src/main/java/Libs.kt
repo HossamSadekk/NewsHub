@@ -11,7 +11,10 @@ object SupportLib {
     const val ComposeLifecycle = "androidx.lifecycle:lifecycle-runtime-compose:2.6.0"
 }
 object TestingLib {
-    const val Junit = "junit:junit:4.13.2"
+    const val Junit = "junit:junit:4.12"
+    const val mockwebserver = "com.squareup.okhttp3:mockwebserver:4.11.0"
+    const val coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2"
+    const val mockk = "io.mockk:mockk:1.13.5"
 }
 object Firebase {
     const val firebasebom = "com.google.firebase:firebase-bom:32.1.1"

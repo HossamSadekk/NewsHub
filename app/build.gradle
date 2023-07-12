@@ -66,6 +66,7 @@ dependencies {
     testImplementation(AndroidTestingLib.JunitExt)
     testImplementation(AndroidTestingLib.EspressoCore)
     testImplementation(AndroidTestingLib.ComposeTestJunit)
+    androidTestImplementation 'junit:junit:4.12'
     debugImplementation(AndroidComposeDebugLib.ComposeUiTooling)
     debugImplementation(AndroidComposeDebugLib.UiTestManifest)
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
