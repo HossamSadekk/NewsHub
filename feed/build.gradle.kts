@@ -67,8 +67,17 @@ dependencies {
     implementation(ImageLoader.coil)
     implementation(Logger.Timber)
 
+    testImplementation(TestingLib.mockwebserver)
+    testImplementation(TestingLib.Junit)
+    testImplementation(TestingLib.coroutines_test)
+    testImplementation(TestingLib.mockk)
+    testImplementation(AndroidTestingLib.JunitExt)
+
     implementation(Pagination.Paging)
     implementation(Pagination.Paging_compose)
 
+    implementation(Remote.retrofit2)
+    implementation(Remote.retrofit2_converter)
+    implementation(Remote.okhttp3)
 
 }
