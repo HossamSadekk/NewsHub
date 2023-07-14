@@ -13,8 +13,10 @@ import com.OnBoardingDirections
 import com.SplashScreenDirections
 import com.example.newshub.navigation.RootNavigationGraph
 import com.example.newshub.ui.theme.NewsHubTheme
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -37,14 +39,26 @@ class MainActivity : ComponentActivity() {
                         if (
                             command.destination.isNotEmpty()
                         ) {
-                            navController.navigate(command.destination){
-                                navController.popBackStack(SplashScreenDirections.splashScreen.destination, true)
-                                // Clear the back stack up to the OnBoarding screen
-                                navController.popBackStack(OnBoardingDirections.onBoarding.destination, true)
-                                // Clear the back stack
-                                launchSingleTop = true
-                                restoreState = true
+                            if (!command.arguments.isEmpty() && command.arguments != null){
+                           //     navController?.currentBackStackEntry?.savedStateHandle?.set(
+                           //         key = "argument",
+                            //        value = command.arguments
+                             //   )
                             }
+                            navController.navigate(command.destination) {
+                                    navController.popBackStack(
+                                        SplashScreenDirections.splashScreen.destination,
+                                        true
+                                    )
+                                    // Clear the back stack up to the OnBoarding screen
+                                    navController.popBackStack(
+                                        OnBoardingDirections.onBoarding.destination,
+                                        true
+                                    )
+                                    // Clear the back stack
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
 
                         }
                     }

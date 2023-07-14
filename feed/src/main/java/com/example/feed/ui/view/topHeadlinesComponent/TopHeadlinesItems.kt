@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.network.HttpException
+import com.example.common.mvvm.SharedViewModel
 import com.example.feed.ui.FeedEvent
 import com.example.feed.ui.FeedViewModel
 import com.example.feed.ui.FeedViewState
@@ -17,7 +18,7 @@ import timber.log.Timber
 import java.io.IOException
 
 @Composable
-fun TopHeadlinesItems(viewState: FeedViewState, modifier: Modifier, viewModel: FeedViewModel) {
+fun TopHeadlinesItems(viewState: FeedViewState, modifier: Modifier, viewModel: FeedViewModel,sharedViewModel: SharedViewModel) {
     val topHeadlines = viewState.topHeadlines.collectAsLazyPagingItems()
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp.dp - 15.dp
@@ -47,7 +48,8 @@ fun TopHeadlinesItems(viewState: FeedViewState, modifier: Modifier, viewModel: F
                             modifier = modifier
                                 .width(screenWidth),
                             onDetailClick = {
-
+                                sharedViewModel.addArticle(it)
+                                    viewModel.onTriggerEvent(FeedEvent.NavigateToDetailsScreen(it))
                             })
                     }
                 }

@@ -53,6 +53,7 @@ dependencies {
     kapt(DI.Hilt_Compiler)
     implementation(SupportLib.ComposeMaterial)
     implementation(Animation.Lottie)
+    implementation(project(Modules.MODEL))
 
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 

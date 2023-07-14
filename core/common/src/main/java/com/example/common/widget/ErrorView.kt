@@ -23,7 +23,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.common.R
 
 @Composable
-fun LottieErrorView(action: () -> Unit) {
+fun LottieErrorView(errorMessage: String ,action: () -> Unit) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.errorlottie))
     val logoAnimationState =
         animateLottieCompositionAsState(composition = composition)
@@ -40,7 +40,7 @@ fun LottieErrorView(action: () -> Unit) {
         )
         Spacer(modifier = Modifier.height(15.dp))
         Text(
-            text = "Check your connection, then refresh the page.",
+            text = errorMessage,
             style = TextStyle(color = Color.Red , fontSize = 16.sp),
             modifier = Modifier
                 .fillMaxWidth()

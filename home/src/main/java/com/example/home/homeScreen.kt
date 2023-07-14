@@ -15,10 +15,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.common.mvvm.SharedViewModel
 import com.example.feed.ui.FeedScreen
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(sharedViewModel : SharedViewModel) {
     val scaffoldState = rememberScaffoldState()
     /**
      * currentBottomTab is a MutableState object that holds the current selected bottom tab item.
@@ -38,7 +39,7 @@ fun HomeScreen() {
             content = {
                 val modifier = Modifier.padding(it)
                 when (bottomTab) {
-                        BottomBarItem.HOME -> FeedScreen()
+                        BottomBarItem.HOME -> FeedScreen(sharedViewModel = sharedViewModel)
                     else -> {}
                 }
             }

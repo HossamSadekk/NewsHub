@@ -18,7 +18,7 @@ val DarkTypography = Typography(
         fontFamily = RalewayFonts,
         fontWeight = FontWeight.Bold,
         color = White,
-        fontSize = 21.sp
+        fontSize = 20.sp
     ),
     h3 = TextStyle(
         fontFamily = RalewayFonts,
@@ -88,7 +88,7 @@ val LightTypography = Typography(
         fontFamily = RalewayFonts,
         fontWeight = FontWeight.Bold,
         color = Black,
-        fontSize = 21.sp
+        fontSize = 20.sp
     ),
     h3 = TextStyle(
         fontFamily = RalewayFonts,

@@ -58,6 +58,7 @@ dependencies {
     debugImplementation(AndroidComposeDebugLib.UiTestManifest)
 
     implementation(project(Modules.FEED))
+    implementation(project(Modules.COMMON))
 
 
     implementation(DI.Hilt)

@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.example.common.mvvm.SharedViewModel
 import com.example.common.widget.GoUp
 import com.example.common.widget.ShimmerItem
 import com.example.feed.ui.FeedEvent
@@ -37,7 +38,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 @Composable
-fun FeedContent(viewState: FeedViewState, feedViewModel: FeedViewModel) {
+fun FeedContent(viewState: FeedViewState, feedViewModel: FeedViewModel,sharedViewModel: SharedViewModel) {
     val scrollState = rememberLazyListState()
     val scope = rememberCoroutineScope()
     val showButton = remember {
@@ -56,7 +57,7 @@ fun FeedContent(viewState: FeedViewState, feedViewModel: FeedViewModel) {
                 TopHeadlinesItems(
                     viewState, modifier = Modifier
                         .height(140.dp)
-                        .fillMaxWidth(), feedViewModel
+                        .fillMaxWidth(), feedViewModel, sharedViewModel
                 )
             }
             // displaying the sources section.

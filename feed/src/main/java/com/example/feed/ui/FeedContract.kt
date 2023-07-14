@@ -37,4 +37,5 @@ sealed class FeedEvent {
     object LoadArticles : FeedEvent()
     object LoadSourcesList : FeedEvent()
     object RefreshScreen : FeedEvent()
+    data class NavigateToDetailsScreen(val articleDto: ArticleDto) : FeedEvent()
 }

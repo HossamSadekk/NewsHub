@@ -6,14 +6,14 @@ object OnBoardingDirections {
 
     val onBoarding = object : NavigationCommand {
 
-        override val arguments = emptyList<NamedNavArgument>()
+        override var arguments = ""
 
         override val destination = "on_boarding_screen"
     }
 
     val homeScreen = object : NavigationCommand {
 
-        override val arguments = emptyList<NamedNavArgument>()
+        override var arguments = ""
 
         override val destination = "homeScreen"
 

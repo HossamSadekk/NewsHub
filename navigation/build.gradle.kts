@@ -42,5 +42,6 @@ dependencies {
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
     kapt(DI.Hilt_Compiler)
+    implementation (project(Modules.MODEL))
 
 }
