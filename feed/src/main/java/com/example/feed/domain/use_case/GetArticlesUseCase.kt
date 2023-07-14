@@ -22,6 +22,4 @@ class GetArticlesUseCase @Inject constructor(
             ),
             pagingSourceFactory = { ArticlesPagingSource(repository, parameter ?: "All") }
         ).flow
-
-
 }

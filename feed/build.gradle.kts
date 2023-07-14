@@ -57,6 +57,8 @@ dependencies {
     implementation(project(Modules.MODEL))
     implementation(project(Modules.REMOTE))
     implementation(project(Modules.COMMON))
+    implementation(project(mapOf("path" to ":navigation")))
+    implementation(Remote.retrofit2_converter)
 
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
@@ -79,5 +81,8 @@ dependencies {
     implementation(Remote.retrofit2)
     implementation(Remote.retrofit2_converter)
     implementation(Remote.okhttp3)
+
+    testImplementation ("app.cash.turbine:turbine:1.0.0")
+
 
 }

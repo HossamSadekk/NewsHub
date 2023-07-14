@@ -5,11 +5,17 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
+import com.HomeScreenDirections
+import com.NavigationCommand
+import com.NavigationManager
 import com.example.common.mvvm.Mvvm
 import com.example.feed.domain.use_case.GetArticlesUseCase
 import com.example.feed.domain.use_case.GetSourcesUseCase
 import com.example.feed.domain.use_case.GetTopHeadlinesUseCase
 import com.example.feed.ui.view.LoadingTopheadlines
+import com.example.model.dto.article.ArticleDto
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -22,8 +28,9 @@ import javax.inject.Inject
 class FeedViewModel @Inject constructor(
     private val getTopHeadlinesUseCase: GetTopHeadlinesUseCase,
     private val getSourcesUseCase: GetSourcesUseCase,
-    private val getArticlesUseCase: GetArticlesUseCase
-) :
+    private val getArticlesUseCase: GetArticlesUseCase,
+    private val navigationManager: NavigationManager
+    ) :
     Mvvm<FeedEvent>() {
     private val _uiState = MutableStateFlow<BaseViewState>(BaseViewState.Loading)
     val uiState: StateFlow<BaseViewState> = _uiState
@@ -64,8 +71,20 @@ class FeedViewModel @Inject constructor(
             is FeedEvent.RefreshScreen -> {
                 refreshScreen()
             }
+            is FeedEvent.NavigateToDetailsScreen -> {
+                navigateToDetails(eventType.articleDto)
+            }
             else -> {}
         }
+    }
+
+    private fun navigateToDetails(articleDto: ArticleDto){
+        val gson = Gson()
+        val articleJson = gson.toJson(articleDto)
+        val command = HomeScreenDirections.detailsScreen()
+        command.arguments = articleJson
+        Timber.d(articleJson)
+        navigationManager.navigate(command)
     }
 
     private fun loadTopHeadlines() = safeLaunch {

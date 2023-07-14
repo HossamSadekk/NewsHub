@@ -83,4 +83,6 @@ object Modules {
     const val MODEL = ":core:model"
     const val COMMON = ":core:common"
     const val FEED = ":feed"
+    const val ARTICLE_DETAILS = ":article_details"
+
 }

@@ -9,6 +9,11 @@ class HttpRequestInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
         val request = originalRequest.newBuilder().url(originalRequest.url()).build()
+        var response = chain.proceed(request)
+        if(response.code()==429){
+            throw IOException("Rate limit exceeded")
+        }
+        response.close()
         Timber.d(request.toString())
         return chain.proceed(request)
     }
