@@ -9,7 +9,8 @@ fun Article.toArticleDto(): ArticleDto = ArticleDto(
     description = description ?: "",
     publishedAt = publishedAt ?: "",
     source = source?.name ?: "",
-    urlToImage = urlToImage ?: ""
+    urlToImage = urlToImage ?: "",
+    urlWebsite = url ?: "",
 )
 
 fun List<Article>.toArticleDtoList(): List<ArticleDto> = map { it.toArticleDto() }

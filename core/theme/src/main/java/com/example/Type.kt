@@ -4,6 +4,7 @@ import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.RalewayFonts
 
@@ -24,7 +25,7 @@ val DarkTypography = Typography(
         fontFamily = RalewayFonts,
         fontWeight = FontWeight.SemiBold,
         color = White,
-        fontSize = 18.sp
+        fontSize = 15.sp
     ),
     h4 = TextStyle(
         fontFamily = RalewayFonts,
@@ -44,17 +45,20 @@ val DarkTypography = Typography(
         color = White,
         fontSize = 30.sp
     ),
-    body1 = TextStyle(
-        fontFamily = RalewayFonts,
-        fontWeight = FontWeight.Normal,
-        color = White,
-        fontSize = 14.sp
+    body1 =
+        TextStyle(
+            fontFamily = RalewayFonts,
+            fontWeight = FontWeight.Bold,
+            color = White,
+            fontSize = 15.sp,
+            lineHeight = 30.sp
+
     ),
     body2 = TextStyle(
         fontFamily = RalewayFonts,
-        fontWeight = FontWeight.Bold,
-        color = White,
-        fontSize = 14.sp
+        fontWeight = FontWeight.Medium,
+        color = Black,
+        fontSize = 16.sp
     ),
     subtitle1 = TextStyle(
         fontFamily = RalewayFonts,
@@ -94,7 +98,7 @@ val LightTypography = Typography(
         fontFamily = RalewayFonts,
         fontWeight = FontWeight.SemiBold,
         color = Black,
-        fontSize = 18.sp
+        fontSize = 15.sp
     ),
     h4 = TextStyle(
         fontFamily = RalewayFonts,
@@ -114,17 +118,20 @@ val LightTypography = Typography(
         color = Black,
         fontSize = 15.sp
     ),
-    body1 = TextStyle(
-        fontFamily = RalewayFonts,
-        fontWeight = FontWeight.Normal,
-        color = Black,
-        fontSize = 14.sp
+    body1 =
+        TextStyle(
+            fontFamily = RalewayFonts,
+            fontWeight = FontWeight.Bold,
+            color = Black,
+            fontSize = 15.sp,
+            lineHeight = 30.sp
+
     ),
     body2 = TextStyle(
         fontFamily = RalewayFonts,
-        fontWeight = FontWeight.Bold,
-        color = Black,
-        fontSize = 14.sp
+        fontWeight = FontWeight.Medium,
+        color = White,
+        fontSize = 16.sp
     ),
     subtitle1 = TextStyle(
         fontFamily = RalewayFonts,
