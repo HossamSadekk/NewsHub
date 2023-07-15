@@ -18,6 +18,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.splash_screen.presentation.SplashScreenViewModel
+import java.time.format.TextStyle
 
 @Composable
 fun SplashScreen(viewModel: SplashScreenViewModel = hiltViewModel()) {
@@ -51,8 +52,7 @@ fun SplashScreen(viewModel: SplashScreenViewModel = hiltViewModel()) {
         Text(
             text = "News Hub",
             modifier = Modifier.align(Alignment.BottomCenter).padding(vertical = 22.dp),
-            color = MaterialTheme.colors.primary,
-            fontSize = 16.sp,
+            style = MaterialTheme.typography.body2,
         )
         if (logoAnimationState.isAtEnd && logoAnimationState.isPlaying) {
             viewModel.navigate()

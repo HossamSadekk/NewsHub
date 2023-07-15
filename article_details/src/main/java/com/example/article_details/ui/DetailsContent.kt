@@ -14,12 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.example.article_details.R
-import com.example.article_details.ui.component.FavoriteButton
+import com.example.article_details.ui.component.*
 import com.example.common.utils.DateUtils
 import com.example.common.widget.popUpButton
 import com.example.model.dto.article.ArticleDto
@@ -61,52 +63,26 @@ fun DetailsContent(article: ArticleDto?) {
                     Spacer(modifier = Modifier.height(7.dp))
                     Text(
                         text = article?.source
-                        + " • " + article?.publishedAt?.let {
+                                + " • " + article?.publishedAt?.let {
                             DateUtils.getTimeDifference(
                                 it
                             )
-                        } ?: " ",
+                        },
                         textAlign = TextAlign.Center,
                         style = MaterialTheme.typography.subtitle1, color = Color.Gray
                     )
                     Spacer(modifier = Modifier.height(15.dp))
-                    Card(
-                        shape = RoundedCornerShape(18.dp),
-                        elevation = 15.dp,
-                        modifier = Modifier
-                            .height(250.dp)
-                            .padding(start = 7.dp, end = 7.dp)
-                    ) {
-                        Box(
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            val painter = rememberImagePainter(
-                                data = article?.urlToImage,
-                                builder = {
-                                    crossfade(true)
-                                    error(R.drawable.placeholder)
-                                }
-                            )
+                    ImageCard(article?.urlToImage)
+                    Spacer(modifier = Modifier.height(20.dp))
+                    Text(
+                        modifier = Modifier.fillMaxHeight(),
+                        text = article?.description + article?.content,
+                        style = MaterialTheme.typography.body1,
+                        textAlign = TextAlign.Center
+                    )
+                    Spacer(modifier = Modifier.height(20.dp))
+                    ShowFullDetailsButton(article!!.urlWebsite)
 
-                            Image(
-                                painter = painter,
-                                contentDescription = "Image",
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier.fillMaxSize()
-                            )
-
-                            Box(modifier = Modifier
-                                .fillMaxSize()
-                                .background(
-                                    Brush.verticalGradient(colors = listOf(
-                                    Color.Transparent,
-                                    Color.Black
-                                )
-                                    , startY = 300f
-                                ))
-                            )
-                        }
-                    }
                 }
             }
         }

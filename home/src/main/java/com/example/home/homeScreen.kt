@@ -19,7 +19,7 @@ import com.example.common.mvvm.SharedViewModel
 import com.example.feed.ui.FeedScreen
 
 @Composable
-fun HomeScreen(sharedViewModel : SharedViewModel) {
+fun HomeScreen(sharedViewModel: SharedViewModel) {
     val scaffoldState = rememberScaffoldState()
     /**
      * currentBottomTab is a MutableState object that holds the current selected bottom tab item.
@@ -28,23 +28,19 @@ fun HomeScreen(sharedViewModel : SharedViewModel) {
     val (currentBottomTab, setCurrentBottomTab) = rememberSaveable {
         mutableStateOf(BottomBarItem.HOME)
     }
-    /**
-     * Crossfade is a Compose composable function that allows you to animate
-     * the transition between two composables by cross-fading them.
-     * **/
-    Crossfade(currentBottomTab) { bottomTab ->
-        Scaffold(
-            scaffoldState = scaffoldState,
-            bottomBar = { HomeBottomNavigation(bottomTab, setCurrentBottomTab) },
-            content = {
-                val modifier = Modifier.padding(it)
-                when (bottomTab) {
-                        BottomBarItem.HOME -> FeedScreen(sharedViewModel = sharedViewModel)
-                    else -> {}
-                }
+
+    Scaffold(
+        scaffoldState = scaffoldState,
+        bottomBar = { HomeBottomNavigation(currentBottomTab, setCurrentBottomTab) },
+        content = {
+            val modifier = Modifier.padding(it)
+            when (currentBottomTab) {
+                BottomBarItem.HOME -> FeedScreen(sharedViewModel = sharedViewModel)
+                else -> {}
             }
-        )
-    }
+        }
+    )
+
 }
 
 @Composable
