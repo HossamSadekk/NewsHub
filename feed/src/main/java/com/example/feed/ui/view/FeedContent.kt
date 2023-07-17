@@ -87,7 +87,8 @@ fun FeedContent(viewState: FeedViewState, feedViewModel: FeedViewModel,sharedVie
                     items(articles.itemCount) {
                         articles[it]?.let { article ->
                             ArticleRow(articleDto = article, onDetailClick = {
-
+                                sharedViewModel.addArticle(article)
+                                feedViewModel.onTriggerEvent(FeedEvent.NavigateToDetailsScreen)
                             })
                         }
                     }
