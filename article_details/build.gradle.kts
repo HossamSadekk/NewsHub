@@ -52,9 +52,12 @@ dependencies {
     implementation(SupportLib.ComposeLifecycle)
     implementation(project(Modules.COMMON))
     implementation(project(Modules.MODEL))
+    implementation(project(Modules.DATABASE))
+    implementation(project(mapOf("path" to ":navigation")))
+    implementation(DI.Hilt_Navigation)
     implementation(ImageLoader.coil)
     implementation(DI.Hilt)
     kapt(DI.Hilt_Compiler)
-    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.5-beta")
+    implementation(Logger.Timber)
 
 }

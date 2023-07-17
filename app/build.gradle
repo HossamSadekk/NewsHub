@@ -88,5 +88,6 @@ dependencies {
     implementation project(Modules.ARTICLE_DETAILS)
     implementation project(Modules.MODEL)
     implementation project(Modules.COMMON)
+    implementation project(Modules.DATABASE)
 
 }

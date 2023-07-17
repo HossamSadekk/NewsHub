@@ -16,13 +16,16 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberImagePainter
 import com.example.article_details.R
 import com.example.common.mvvm.SharedViewModel
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
-fun ArticleDetailsScreen(sharedViewModel: SharedViewModel) {
+fun ArticleDetailsScreen(
+    sharedViewModel: SharedViewModel,
+    viewModel: ArticleDetailsViewModel = hiltViewModel()
+) {
     val article = sharedViewModel.article.value
-    DetailsContent(article)
+    DetailsContent(article,viewModel)
 }

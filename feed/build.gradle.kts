@@ -82,7 +82,7 @@ dependencies {
     implementation(Remote.retrofit2_converter)
     implementation(Remote.okhttp3)
 
-    testImplementation ("app.cash.turbine:turbine:1.0.0")
+    testImplementation (TestingLib.turbine)
 
 
 }

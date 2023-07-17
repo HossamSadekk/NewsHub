@@ -8,5 +8,6 @@ data class ArticleDto(
     val publishedAt: String,
     val source: String,
     val urlToImage: String,
-    val urlWebsite: String
+    val urlWebsite: String,
+    var isFavorite: Boolean = false
 )

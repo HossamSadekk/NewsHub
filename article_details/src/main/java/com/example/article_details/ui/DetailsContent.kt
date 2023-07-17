@@ -19,16 +19,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.rememberImagePainter
 import com.example.article_details.R
 import com.example.article_details.ui.component.*
 import com.example.common.utils.DateUtils
 import com.example.common.widget.popUpButton
 import com.example.model.dto.article.ArticleDto
+import com.example.model.dto.toArticleEntity
 
 @SuppressLint("NewApi")
 @Composable
-fun DetailsContent(article: ArticleDto?) {
+fun DetailsContent(article: ArticleDto?,viewModel: ArticleDetailsViewModel) {
+    viewModel.onTriggerEvent(ArticleDetailsEvent.checkArticleAvilability(article?.title ?: ""))
     Box(Modifier.fillMaxSize().background(MaterialTheme.colors.background)) {
         LazyColumn {
             item {
@@ -46,13 +49,13 @@ fun DetailsContent(article: ArticleDto?) {
                         // pop up button
                         popUpButton(popUp = {
                             // when button is clicked
-
+                            viewModel.onTriggerEvent(ArticleDetailsEvent.popUp)
                         })
 
                         // favorite button
                         FavoriteButton(onFavClicked = {
-
-                        })
+                            viewModel.onTriggerEvent(ArticleDetailsEvent.updateArticleFavoriteState(article!!.toArticleEntity()))
+                        }, viewModel = viewModel)
                     }
                     Spacer(modifier = Modifier.height(15.dp))
                     Text(
@@ -81,7 +84,7 @@ fun DetailsContent(article: ArticleDto?) {
                         textAlign = TextAlign.Center
                     )
                     Spacer(modifier = Modifier.height(20.dp))
-                    ShowFullDetailsButton(article!!.urlWebsite)
+                    ShowFullDetailsButton(article?.urlWebsite?:"")
 
                 }
             }

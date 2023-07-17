@@ -25,9 +25,6 @@ fun NavGraphBuilder.homeNavGraph(sharedViewModel: SharedViewModel) {
             HomeScreen(sharedViewModel)
         }
         composable(HomeScreenDirections.detailsScreen().destination) {
-       //     val result = navController.previousBackStackEntry?.savedStateHandle?.get<String>("argument")
-         //   val gson = Gson()
-           // val article = gson.fromJson(result, ArticleDto::class.java)
             ArticleDetailsScreen(sharedViewModel)
         }
     }

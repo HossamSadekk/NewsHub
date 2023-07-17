@@ -18,7 +18,7 @@ import com.example.common.R
 fun popUpButton(modifier: Modifier = Modifier,popUp: () -> Unit){
     IconButton(
         onClick = {
-        popUp
+        popUp()
         },
         modifier = modifier.size(50.dp).padding(start = 10.dp, top = 20.dp)
     ) {

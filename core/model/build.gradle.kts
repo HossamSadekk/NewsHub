@@ -35,5 +35,6 @@ android {
 
 dependencies {
     implementation(Remote.retrofit2_converter)
+    implementation("androidx.room:room-common:2.5.0")
 
 }

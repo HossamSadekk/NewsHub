@@ -8,14 +8,14 @@ object OnBoardingDirections {
 
         override var arguments = ""
 
-        override val destination = "on_boarding_screen"
+        override var destination = "on_boarding_screen"
     }
 
     val homeScreen = object : NavigationCommand {
 
         override var arguments = ""
 
-        override val destination = "homeScreen"
+        override var destination = "homeScreen"
 
     }
 }

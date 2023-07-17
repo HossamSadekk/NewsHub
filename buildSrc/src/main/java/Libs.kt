@@ -15,6 +15,7 @@ object TestingLib {
     const val mockwebserver = "com.squareup.okhttp3:mockwebserver:4.11.0"
     const val coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2"
     const val mockk = "io.mockk:mockk:1.13.5"
+    const val turbine = "app.cash.turbine:turbine:1.0.0"
 }
 object Firebase {
     const val firebasebom = "com.google.firebase:firebase-bom:32.1.1"
@@ -51,6 +52,8 @@ object DI {
 }
 object Local {
     const val Preferences_DataStore = "androidx.datastore:datastore-preferences:1.0.0"
+    const val room = "androidx.room:room-runtime:2.5.2"
+    const val room_compiler = "androidx.room:room-compiler:2.5.2"
 }
 
 object Remote {
@@ -75,6 +78,7 @@ object Modules {
     const val APP = ":app"
     const val Theme = ":core:theme"
     const val STORAGE = ":core:local:storage"
+    const val DATABASE = ":core:local:database"
     const val NAVIGATION = ":navigation"
     const val SPLASHSCREEN = ":splash_screen"
     const val ONBOARDING = ":on_boarding"

@@ -7,5 +7,5 @@ interface NavigationCommand {
 
     var arguments: String
 
-    val destination: String
+    var destination: String
 }

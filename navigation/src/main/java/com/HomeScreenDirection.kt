@@ -8,14 +8,14 @@ object HomeScreenDirections {
 
         override var arguments = ""
 
-        override val destination = "home_graph"
+        override var destination = "home_graph"
     }
 
     val homeScreen = object : NavigationCommand {
 
         override var arguments = ""
 
-        override val destination = "homeScreen"
+        override var destination = "homeScreen"
 
     }
 
@@ -24,6 +24,6 @@ object HomeScreenDirections {
 
         override var arguments = ""
 
-        override val destination = "article_details"
+        override var destination = "article_details"
     }
 }
