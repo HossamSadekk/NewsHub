@@ -1,6 +1,7 @@
 package com.example.feed.ui.view.everythingComponent
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
@@ -24,7 +25,9 @@ fun ArticleRow(
     articleDto: ArticleDto,
     onDetailClick: () -> Unit = {},
 ) {
-    Row(modifier = Modifier.fillMaxWidth().padding(10.dp)) {
+    Row(modifier = Modifier.fillMaxWidth().padding(10.dp).clickable {
+        onDetailClick()
+    }) {
         val painter = rememberImagePainter(
             data = articleDto.urlToImage,
             builder = {

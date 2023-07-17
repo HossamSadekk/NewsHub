@@ -18,7 +18,12 @@ import timber.log.Timber
 import java.io.IOException
 
 @Composable
-fun TopHeadlinesItems(viewState: FeedViewState, modifier: Modifier, viewModel: FeedViewModel,sharedViewModel: SharedViewModel) {
+fun TopHeadlinesItems(
+    viewState: FeedViewState,
+    modifier: Modifier,
+    viewModel: FeedViewModel,
+    sharedViewModel: SharedViewModel
+) {
     val topHeadlines = viewState.topHeadlines.collectAsLazyPagingItems()
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp.dp - 15.dp
@@ -49,7 +54,7 @@ fun TopHeadlinesItems(viewState: FeedViewState, modifier: Modifier, viewModel: F
                                 .width(screenWidth),
                             onDetailClick = {
                                 sharedViewModel.addArticle(it)
-                                    viewModel.onTriggerEvent(FeedEvent.NavigateToDetailsScreen(it))
+                                viewModel.onTriggerEvent(FeedEvent.NavigateToDetailsScreen)
                             })
                     }
                 }

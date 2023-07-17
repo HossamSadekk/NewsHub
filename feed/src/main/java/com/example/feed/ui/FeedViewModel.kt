@@ -72,18 +72,14 @@ class FeedViewModel @Inject constructor(
                 refreshScreen()
             }
             is FeedEvent.NavigateToDetailsScreen -> {
-                navigateToDetails(eventType.articleDto)
+                navigateToDetails()
             }
             else -> {}
         }
     }
 
-    private fun navigateToDetails(articleDto: ArticleDto){
-        val gson = Gson()
-        val articleJson = gson.toJson(articleDto)
+    private fun navigateToDetails(){
         val command = HomeScreenDirections.detailsScreen()
-        command.arguments = articleJson
-        Timber.d(articleJson)
         navigationManager.navigate(command)
     }
 
