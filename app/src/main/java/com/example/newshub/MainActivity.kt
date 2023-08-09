@@ -8,6 +8,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.HomeScreenDirections
 import com.NavigationManager
@@ -44,6 +45,7 @@ class MainActivity : ComponentActivity() {
 
                 this.onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
+
                 /**
                  * here i used LaunchEffect because when recomposition happened the nav graph was not
                  * initialized yet so it throw a null pointer exception when navController try to navigate
@@ -77,10 +79,6 @@ class MainActivity : ComponentActivity() {
                     navigationManager.popUp.collect { popUp ->
                         if (popUp == true) {
                             navController.navigateUp()
-                            if (navigationManager.commands.value.destination == HomeScreenDirections.detailsScreen().destination) {
-                                navigationManager.setDestination(HomeScreenDirections.homeScreen.destination)
-                            }
-                            Log.d("hossam", navigationManager.commands.value.destination)
                             navigationManager.popUp.value = false
                         }
                     }

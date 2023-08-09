@@ -13,12 +13,22 @@ import java.util.*
 
 object DateUtils {
     fun formatDate(dateString: String): String {
-        val inputFormatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+        val inputFormats = arrayOf(
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSS'Z'", Locale.getDefault()),
+            SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+        )
         val outputFormatter = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
 
-        val date: Date = inputFormatter.parse(dateString) ?: return ""
+        for (inputFormatter in inputFormats) {
+            try {
+                val date: Date = inputFormatter.parse(dateString) ?: continue
+                return outputFormatter.format(date)
+            } catch (e: Exception) {
+                // Ignore parsing errors and try the next format
+            }
+        }
 
-        return outputFormatter.format(date)
+        return ""
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

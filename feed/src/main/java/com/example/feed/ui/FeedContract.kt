@@ -38,4 +38,5 @@ sealed class FeedEvent {
     object LoadSourcesList : FeedEvent()
     object RefreshScreen : FeedEvent()
     object NavigateToDetailsScreen : FeedEvent()
+    object NavigateToSourceContent : FeedEvent()
 }

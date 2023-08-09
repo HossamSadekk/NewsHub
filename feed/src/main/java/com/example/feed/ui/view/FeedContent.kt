@@ -63,7 +63,7 @@ fun FeedContent(viewState: FeedViewState, feedViewModel: FeedViewModel,sharedVie
             // displaying the sources section.
             item {
                 CategoryTitle("Sources", topPadding = 20.dp, bottomPadding = 20.dp)
-                SourcesItems(viewState)
+                SourcesItems(viewState,sharedViewModel,feedViewModel)
             }
             // the everything section ( categories )
             item {

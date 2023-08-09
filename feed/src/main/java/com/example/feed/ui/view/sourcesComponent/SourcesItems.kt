@@ -8,11 +8,14 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.common.mvvm.SharedViewModel
+import com.example.feed.ui.FeedEvent
+import com.example.feed.ui.FeedViewModel
 import com.example.feed.ui.FeedViewState
 import timber.log.Timber
 
 @Composable
-fun SourcesItems(viewState: FeedViewState) {
+fun SourcesItems(viewState: FeedViewState,sharedViewModel: SharedViewModel,feedViewModel:FeedViewModel) {
     val sources = viewState.sourcesList
     LazyRow(
         modifier = Modifier.fillMaxWidth().padding(start = 7.dp),
@@ -21,7 +24,10 @@ fun SourcesItems(viewState: FeedViewState) {
         Timber.e(sources.size.toString())
         items(sources.size){
             sources[it]?.let {
-                SourcesRow(it, onDetailClick = {})
+                SourcesRow(it, onDetailClick = {
+                    sharedViewModel.addSource(it)
+                    feedViewModel.onTriggerEvent(FeedEvent.NavigateToSourceContent)
+                })
             }
         }
     }

@@ -31,7 +31,7 @@ fun Categories(
             categories[it]?.let {category ->
                 Text(
                     text = category,
-                    style = typography.body1.merge(),
+                    style = typography.h6.merge(),
                     color = MaterialTheme.colors.secondaryVariant,
                     modifier = Modifier
                         .clip(

@@ -35,7 +35,7 @@ fun SourcesRow(
 ) {
     Column(
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.clickable { onDetailClick }
+        modifier = Modifier.clickable { onDetailClick() }
     ) {
         Box(
             modifier = Modifier
