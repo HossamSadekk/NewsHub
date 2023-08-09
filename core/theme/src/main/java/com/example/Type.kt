@@ -40,10 +40,11 @@ val DarkTypography = Typography(
         fontSize = 10.sp
     ),
     h6 = TextStyle(
-        fontFamily = RalewayFonts ,
-        fontWeight = FontWeight.Bold,
+        fontFamily = RalewayFonts,
+        fontWeight = FontWeight.Light,
         color = White,
-        fontSize = 30.sp
+        fontSize = 13.sp,
+        lineHeight = 30.sp
     ),
     body1 =
         TextStyle(
@@ -114,9 +115,10 @@ val LightTypography = Typography(
     ),
     h6 = TextStyle(
         fontFamily = RalewayFonts,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Light,
         color = Black,
-        fontSize = 15.sp
+        fontSize = 13.sp,
+        lineHeight = 30.sp
     ),
     body1 =
         TextStyle(

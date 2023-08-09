@@ -86,6 +86,7 @@ dependencies {
     implementation project(Modules.REMOTE)
     implementation project(Modules.FEED)
     implementation project(Modules.ARTICLE_DETAILS)
+    implementation project(Modules.SOURCE_CONTENT)
     implementation project(Modules.MODEL)
     implementation project(Modules.COMMON)
     implementation project(Modules.DATABASE)

@@ -23,6 +23,11 @@ interface NewsApi {
         @Query("q") query: String,
     ): ArticlesResponse
 
+    @GET(TOP_HEADLINES)
+    suspend fun getArticlesBySource(
+        @Query("sources") source: String,
+    ): ArticlesResponse
+
 
     companion object {
         const val BASE_URL = "https://newsapi.org/v2/"

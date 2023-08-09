@@ -26,4 +26,13 @@ object HomeScreenDirections {
 
         override var destination = "article_details"
     }
+
+    val sourceContentScreen = object : NavigationCommand {
+
+        override var arguments = ""
+
+        override var destination = "source_content"
+
+    }
+
 }

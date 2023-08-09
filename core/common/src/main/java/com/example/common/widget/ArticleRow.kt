@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.example.common.utils.DateUtils
-import com.example.feed.R
+import com.example.common.R
 import com.example.model.dto.article.ArticleDto
 
 @Composable

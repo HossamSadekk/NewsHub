@@ -8,6 +8,7 @@ import androidx.paging.cachedIn
 import com.HomeScreenDirections
 import com.NavigationCommand
 import com.NavigationManager
+import com.example.common.mvvm.BaseViewState
 import com.example.common.mvvm.Mvvm
 import com.example.feed.domain.use_case.GetArticlesUseCase
 import com.example.feed.domain.use_case.GetSourcesUseCase
@@ -74,12 +75,19 @@ class FeedViewModel @Inject constructor(
             is FeedEvent.NavigateToDetailsScreen -> {
                 navigateToDetails()
             }
+            is FeedEvent.NavigateToSourceContent -> {
+                navigateToSourceContent()
+            }
             else -> {}
         }
     }
 
     private fun navigateToDetails(){
         val command = HomeScreenDirections.detailsScreen()
+        navigationManager.navigate(command)
+    }
+    private fun navigateToSourceContent(){
+        val command = HomeScreenDirections.sourceContentScreen
         navigationManager.navigate(command)
     }
 
@@ -126,9 +134,3 @@ class FeedViewModel @Inject constructor(
 
 }
 
-sealed class BaseViewState {
-    object Loading : BaseViewState()
-    object Empty : BaseViewState()
-    object Data : BaseViewState()
-    data class Error(val throwable: Throwable) : BaseViewState()
-}

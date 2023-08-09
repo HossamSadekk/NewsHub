@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.common.mvvm.BaseViewState
 import com.example.common.mvvm.SharedViewModel
 import com.example.common.widget.LottieErrorView
 import com.example.common.widget.ProgressIndicator

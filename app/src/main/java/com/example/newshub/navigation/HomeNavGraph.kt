@@ -12,6 +12,7 @@ import com.example.article_details.ui.ArticleDetailsScreen
 import com.example.common.mvvm.SharedViewModel
 import com.example.home.HomeScreen
 import com.example.model.dto.article.ArticleDto
+import com.example.source_content.ui.SourceContentScreen
 import com.google.gson.Gson
 import timber.log.Timber
 import javax.inject.Inject
@@ -26,6 +27,9 @@ fun NavGraphBuilder.homeNavGraph(sharedViewModel: SharedViewModel) {
         }
         composable(HomeScreenDirections.detailsScreen().destination) {
             ArticleDetailsScreen(sharedViewModel)
+        }
+        composable(HomeScreenDirections.sourceContentScreen.destination) {
+            SourceContentScreen(sharedViewModel)
         }
     }
 }
