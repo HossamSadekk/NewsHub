@@ -1,22 +1,20 @@
 package com.example.home
 
-import androidx.compose.animation.Crossfade
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.common.mvvm.SharedViewModel
 import com.example.feed.ui.FeedScreen
+import com.example.search.ui.SearchScreen
 
 @Composable
 fun HomeScreen(sharedViewModel: SharedViewModel) {
@@ -36,6 +34,7 @@ fun HomeScreen(sharedViewModel: SharedViewModel) {
             val modifier = Modifier.padding(it)
             when (currentBottomTab) {
                 BottomBarItem.HOME -> FeedScreen(sharedViewModel = sharedViewModel)
+                BottomBarItem.SEARCH -> SearchScreen(sharedViewModel = sharedViewModel)
                 else -> {}
             }
         }

@@ -47,12 +47,21 @@ class SourceContentViewModel @Inject constructor
             is SourceContentEvent.NavigateToDetailsScreen -> {
                 navigateToDetails()
             }
+            is SourceContentEvent.RefreshScreen -> {
+                refreshScreen()
+            }
             else -> {}
         }
     }
 
     private fun navigateBack() {
         navigationManager.navigateBack()
+    }
+
+    private fun refreshScreen() {
+        if (sourceId.value.isNotEmpty()) {
+            loadArticlesBySource(sourceId.value)
+        }
     }
 
     private fun navigateToDetails() {
