@@ -4,6 +4,8 @@ plugins {
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+
 }
 
 android {
@@ -91,4 +93,11 @@ dependencies {
     implementation project(Modules.COMMON)
     implementation project(Modules.DATABASE)
 
+    // Import the BoM for the Firebase platform
+    implementation(platform(Firebase.firebasebom))
+
+    // Add the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(Firebase.crashlytics)
+    implementation(Firebase.analytics)
 }

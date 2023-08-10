@@ -4,6 +4,8 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
     id("kotlin-android-extensions")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -77,6 +79,10 @@ dependencies {
     implementation(Remote.okhttp3)
 
     testImplementation(TestingLib.turbine)
-
+    implementation(Firebase.crashlytics)
+    implementation(Firebase.analytics)
+    implementation(platform("com.google.firebase:firebase-bom:26.7.0"))
+    implementation("com.google.firebase:firebase-common-ktx:20.1.0")
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
 }

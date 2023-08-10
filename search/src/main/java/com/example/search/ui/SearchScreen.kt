@@ -25,7 +25,6 @@ fun SearchScreen(
     val uiState = viewModel.uiState.collectAsStateWithLifecycle()
     val uiStateSearch = viewModel.uiStateSearch.collectAsStateWithLifecycle()
     val scaffoldState = rememberScaffoldState()
-
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
