@@ -5,6 +5,8 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-android-extensions")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
+
 }
 
 android {
@@ -82,7 +84,10 @@ dependencies {
     implementation(Remote.retrofit2_converter)
     implementation(Remote.okhttp3)
 
-    testImplementation (TestingLib.turbine)
+    testImplementation(TestingLib.turbine)
+
+    implementation(Firebase.crashlytics)
+    implementation(Firebase.analytics)
 
 
 }

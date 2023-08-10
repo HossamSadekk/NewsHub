@@ -20,6 +20,8 @@ object TestingLib {
 object Firebase {
     const val firebasebom = "com.google.firebase:firebase-bom:32.1.1"
     const val firebasestorage = "com.google.firebase:firebase-storage-ktx"
+    const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
+    const val analytics = "com.google.firebase:firebase-analytics-ktx"
 }
 
 object Animation {
