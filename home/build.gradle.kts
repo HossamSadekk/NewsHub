@@ -58,6 +58,7 @@ dependencies {
     debugImplementation(AndroidComposeDebugLib.UiTestManifest)
 
     implementation(project(Modules.FEED))
+    implementation(project(Modules.SEARCH))
     implementation(project(Modules.COMMON))
 
 

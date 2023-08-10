@@ -20,18 +20,18 @@ fun SourceContentScreen(
     val uiState = viewModel.uiState.collectAsStateWithLifecycle()
     val uiStateSource = viewModel.uiStateSource.collectAsStateWithLifecycle()
     viewModel.setSourceId(source?.id ?: "")
-    LaunchedEffect(viewModel.sourceId){
+    LaunchedEffect(viewModel.sourceId) {
         viewModel.onTriggerEvent(SourceContentEvent.LoadArticlesBySource(viewModel.sourceId.value))
     }
     when (uiState.value) {
         is BaseViewState.Data -> {
-            SourceContent(viewModel,uiStateSource.value, sharedViewModel)
+            SourceContent(viewModel, uiStateSource.value, sharedViewModel)
         }
         is BaseViewState.Empty -> {}
         is BaseViewState.Error -> {
             Timber.e((uiState.value as BaseViewState.Error).throwable.toString())
             LottieErrorView(action = {
-                //  viewModel.onTriggerEvent(FeedEvent.RefreshScreen)
+                viewModel.onTriggerEvent(SourceContentEvent.RefreshScreen)
             }, errorMessage = (uiState.value as BaseViewState.Error).throwable.message.toString())
         }
         is BaseViewState.Loading -> {

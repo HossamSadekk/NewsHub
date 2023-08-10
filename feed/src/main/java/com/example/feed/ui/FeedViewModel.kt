@@ -1,26 +1,19 @@
 package com.example.feed.ui
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.HomeScreenDirections
-import com.NavigationCommand
 import com.NavigationManager
 import com.example.common.mvvm.BaseViewState
 import com.example.common.mvvm.Mvvm
 import com.example.feed.domain.use_case.GetArticlesUseCase
 import com.example.feed.domain.use_case.GetSourcesUseCase
 import com.example.feed.domain.use_case.GetTopHeadlinesUseCase
-import com.example.feed.ui.view.LoadingTopheadlines
-import com.example.model.dto.article.ArticleDto
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import timber.log.Timber
 import javax.inject.Inject
