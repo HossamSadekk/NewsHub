@@ -59,6 +59,7 @@ dependencies {
 
     implementation(project(Modules.FEED))
     implementation(project(Modules.SEARCH))
+    implementation(project(Modules.FAVORITES))
     implementation(project(Modules.COMMON))
 
 

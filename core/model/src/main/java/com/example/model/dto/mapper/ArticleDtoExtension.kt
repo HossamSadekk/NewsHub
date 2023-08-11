@@ -14,9 +14,20 @@ fun Article.toArticleDto(): ArticleDto = ArticleDto(
     urlWebsite = url ?: "",
 )
 
-fun List<Article>.toArticleDtoList(): List<ArticleDto> = map { it.toArticleDto() }
+fun ArticleEntity.toArticleDto(): ArticleDto = ArticleDto(
+    title = title,
+    content = content,
+    description = description,
+    publishedAt = publishedAt,
+    source = source,
+    urlToImage = urlToImage,
+    urlWebsite = urlWebsite,
+)
 
-fun ArticleDto.toArticleEntity():ArticleEntity = ArticleEntity(
+fun List<Article>.toArticleDtoList(): List<ArticleDto> = map { it.toArticleDto() }
+fun List<ArticleEntity>.toFavoriteDtoList(): List<ArticleDto> = map { it.toArticleDto() }
+
+fun ArticleDto.toArticleEntity(): ArticleEntity = ArticleEntity(
     title = title,
     content = content,
     description = description,

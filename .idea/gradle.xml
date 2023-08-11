@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/core/model" />
             <option value="$PROJECT_DIR$/core/remote" />
             <option value="$PROJECT_DIR$/core/theme" />
+            <option value="$PROJECT_DIR$/favorites" />
             <option value="$PROJECT_DIR$/feed" />
             <option value="$PROJECT_DIR$/home" />
             <option value="$PROJECT_DIR$/navigation" />

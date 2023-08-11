@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.common.mvvm.SharedViewModel
+import com.example.favorites.ui.FavoriteScreen
 import com.example.feed.ui.FeedScreen
 import com.example.search.ui.SearchScreen
 
@@ -35,6 +36,7 @@ fun HomeScreen(sharedViewModel: SharedViewModel) {
             when (currentBottomTab) {
                 BottomBarItem.HOME -> FeedScreen(sharedViewModel = sharedViewModel)
                 BottomBarItem.SEARCH -> SearchScreen(sharedViewModel = sharedViewModel)
+                BottomBarItem.FAVORITE -> FavoriteScreen(sharedViewModel = sharedViewModel)
                 else -> {}
             }
         }
