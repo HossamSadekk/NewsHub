@@ -47,7 +47,7 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    fun refreshScreen() {
+    private fun refreshScreen() {
         loadArticles(searchQuery.value)
     }
 

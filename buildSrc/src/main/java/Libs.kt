@@ -1,5 +1,3 @@
-import java.awt.SplashScreen
-
 object SupportLib {
     const val CoreKtx = "androidx.core:core-ktx:1.7.0"
     const val LifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
@@ -10,6 +8,7 @@ object SupportLib {
     const val ComposeMaterial = "androidx.compose.material:material:1.2.0"
     const val ComposeLifecycle = "androidx.lifecycle:lifecycle-runtime-compose:2.6.0"
 }
+
 object TestingLib {
     const val Junit = "junit:junit:4.12"
     const val mockwebserver = "com.squareup.okhttp3:mockwebserver:4.11.0"
@@ -17,6 +16,7 @@ object TestingLib {
     const val mockk = "io.mockk:mockk:1.13.5"
     const val turbine = "app.cash.turbine:turbine:1.0.0"
 }
+
 object Firebase {
     const val firebasebom = "com.google.firebase:firebase-bom:32.1.1"
     const val firebasestorage = "com.google.firebase:firebase-storage-ktx"
@@ -31,9 +31,11 @@ object Animation {
 object Navigation {
     const val NavigationCompose = "androidx.navigation:navigation-compose:2.5.3"
 }
+
 object Pager {
     const val ComposePager = "com.google.accompanist:accompanist-pager:0.23.1"
-    const val HorizontalPagerIndicator  = "com.google.accompanist:accompanist-pager-indicators:0.23.1"
+    const val HorizontalPagerIndicator =
+        "com.google.accompanist:accompanist-pager-indicators:0.23.1"
 }
 
 object AndroidTestingLib {
@@ -52,6 +54,7 @@ object DI {
     const val Hilt_Compiler = "com.google.dagger:hilt-android-compiler:2.44"
     const val Hilt_Navigation = "androidx.hilt:hilt-navigation-compose:1.0.0"
 }
+
 object Local {
     const val Preferences_DataStore = "androidx.datastore:datastore-preferences:1.0.0"
     const val room = "androidx.room:room-runtime:2.5.2"
@@ -67,6 +70,7 @@ object Remote {
 object Logger {
     const val Timber = "com.jakewharton.timber:timber:5.0.1"
 }
+
 object ImageLoader {
     const val coil = "io.coil-kt:coil-compose:2.4.0"
 }
@@ -92,5 +96,6 @@ object Modules {
     const val ARTICLE_DETAILS = ":article_details"
     const val SOURCE_CONTENT = ":source_content"
     const val SEARCH = ":search"
+    const val FAVORITES = ":favorites"
 
 }

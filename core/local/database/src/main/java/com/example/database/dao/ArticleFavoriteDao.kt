@@ -11,6 +11,9 @@ interface ArticleFavoriteDao {
     @Query("DELETE FROM articles WHERE title = :title")
     suspend fun deleteFavorite(title: String)
 
+    @Query("SELECT * FROM articles")
+    suspend fun getAllFavoriteArticles(): List<ArticleEntity>
+
     @Query("SELECT EXISTS(SELECT 1 FROM articles WHERE title = :title LIMIT 1)")
     suspend fun isArticleExists(title: String): Boolean
 }
