@@ -12,7 +12,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.common.mvvm.BaseViewState
 import com.example.common.mvvm.SharedViewModel
+import com.example.common.widget.LottieErrorView
+import com.example.common.widget.ProgressIndicator
+import timber.log.Timber
 
 @Composable
 fun FavoriteScreen(
@@ -49,7 +53,24 @@ fun FavoriteScreen(
     )
     {
         Box(modifier = Modifier.padding(paddingValues = it).fillMaxSize()) {
-
+            when (uiState.value) {
+                is BaseViewState.Data -> {
+                    // SearchContent(uiStateSearch.value, viewModel, sharedViewModel)
+                }
+                is BaseViewState.Empty -> {}
+                is BaseViewState.Error -> {
+                    Timber.e((uiState.value as BaseViewState.Error).throwable.toString())
+                    LottieErrorView(
+                        action = {
+                            viewModel.onTriggerEvent(FavoriteEvent.RefreshScreen)
+                        },
+                        errorMessage = (uiState.value as BaseViewState.Error).throwable.message.toString()
+                    )
+                }
+                is BaseViewState.Loading -> {
+                    ProgressIndicator()
+                }
+            }
         }
     }
 }
