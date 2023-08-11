@@ -1,7 +1,10 @@
 package com.example.favorites.ui
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,7 +21,6 @@ fun FavoriteScreen(
 ) {
     val uiState = viewModel.uiState.collectAsStateWithLifecycle()
     val uiStateFavorite = viewModel.uiStateFavorite.collectAsStateWithLifecycle()
-    val scaffoldState = rememberScaffoldState()
 
     Scaffold(
         topBar = {
