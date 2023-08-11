@@ -55,7 +55,7 @@ fun FavoriteScreen(
         Box(modifier = Modifier.padding(paddingValues = it).fillMaxSize()) {
             when (uiState.value) {
                 is BaseViewState.Data -> {
-                    // SearchContent(uiStateSearch.value, viewModel, sharedViewModel)
+                    // FavoriteContent(uiStateSearch.value, viewModel, sharedViewModel)
                 }
                 is BaseViewState.Empty -> {}
                 is BaseViewState.Error -> {
