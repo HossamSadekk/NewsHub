@@ -18,4 +18,4 @@ jobs:
           java-version: 1.8
 
       - name: Build and Test Modules
-        run: bash ./gradlew :feed:testDebugUnitTest
+        run: bash ./gradlew :feed:test
