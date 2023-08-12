@@ -60,4 +60,9 @@ dependencies {
     kapt(DI.Hilt_Compiler)
     implementation(Logger.Timber)
 
+    testImplementation(TestingLib.mockwebserver)
+    testImplementation(TestingLib.Junit)
+    testImplementation(TestingLib.coroutines_test)
+    testImplementation(TestingLib.mockk)
+    testImplementation(AndroidTestingLib.JunitExt)
 }
