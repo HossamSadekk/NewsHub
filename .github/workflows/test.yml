@@ -25,8 +25,13 @@ jobs:
       - name: Add Api Key
         run: echo "apiKey=\"\"" >> local.properties
 
-      - name: Run Tests
-        run: ./gradlew :feed:test
+      # Execute unit tests
+      - name: Unit Test
+        run: ./gradlew testDebugUnitTest
+
+      - name: Android Test Report
+        uses: asadmansr/android-test-report-action@v1.2.0
+        if: ${{ always() }}
         
   build:
     runs-on: ubuntu-latest
