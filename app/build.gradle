@@ -98,7 +98,7 @@ dependencies {
     // Import the BoM for the Firebase platform
     implementation(platform(Firebase.firebasebom))
 
-    // Add the dependencies for the Crashlytics and Analytics libraries
+    // Add the dependencies for the Crashlytics and Analytics librariesk
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation(Firebase.crashlytics)
     implementation(Firebase.analytics)
