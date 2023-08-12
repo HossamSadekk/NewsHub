@@ -6,6 +6,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+        
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Upload app to AppSweep with Gradle
         env:
