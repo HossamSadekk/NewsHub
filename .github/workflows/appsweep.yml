@@ -9,6 +9,10 @@ jobs:
         
       - name: Make gradlew executable
         run: chmod +x ./gradlew
+        
+      - name: run tasks
+        run: ./gradlew tasks
+
 
       - name: Update Username from Secrets
         env:
