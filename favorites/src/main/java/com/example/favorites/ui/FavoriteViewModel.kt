@@ -25,6 +25,10 @@ class FavoriteViewModel @Inject constructor(
     private val _uiStateFavorite = MutableStateFlow(FavoriteViewState())
     val uiStateFavorite: StateFlow<FavoriteViewState> = _uiStateFavorite
 
+    init {
+        loadArticles()
+    }
+
     override fun onTriggerEvent(eventType: FavoriteEvent) {
         when (eventType) {
             is FavoriteEvent.LoadArticles -> {
@@ -63,7 +67,7 @@ class FavoriteViewModel @Inject constructor(
     }
 
     override fun handleError(exception: Throwable) {
-        Timber.e("exception in viewmodel :: $exception")
+        Timber.e("exception in view_model :: $exception")
         _uiState.value = BaseViewState.Error(exception)
     }
 
