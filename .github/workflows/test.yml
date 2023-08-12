@@ -21,9 +21,9 @@ jobs:
       - name: Add Api Key
         run: echo "apiKey=\"\"" >> local.properties
 
-      - name: Run unit tests
-        run: ./gradlew :feed:testDebugUnitTest
-
+      - name: Run Tests
+        run: ./gradlew test
+        
   build:
     runs-on: ubuntu-latest
     steps:
