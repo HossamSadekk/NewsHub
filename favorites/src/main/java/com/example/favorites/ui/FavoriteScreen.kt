@@ -14,8 +14,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.common.mvvm.BaseViewState
 import com.example.common.mvvm.SharedViewModel
+import com.example.common.widget.CenteredText
 import com.example.common.widget.LottieErrorView
 import com.example.common.widget.ProgressIndicator
+import com.example.favorites.ui.component.FavoriteContent
 import timber.log.Timber
 
 @Composable
@@ -55,9 +57,11 @@ fun FavoriteScreen(
         Box(modifier = Modifier.padding(paddingValues = it).fillMaxSize()) {
             when (uiState.value) {
                 is BaseViewState.Data -> {
-                    // FavoriteContent(uiStateSearch.value, viewModel, sharedViewModel)
+                    FavoriteContent(uiStateFavorite.value, viewModel, sharedViewModel)
                 }
-                is BaseViewState.Empty -> {}
+                is BaseViewState.Empty -> {
+                    CenteredText("No Favorites")
+                }
                 is BaseViewState.Error -> {
                     Timber.e((uiState.value as BaseViewState.Error).throwable.toString())
                     LottieErrorView(

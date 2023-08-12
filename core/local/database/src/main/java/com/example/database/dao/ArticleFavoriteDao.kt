@@ -2,6 +2,7 @@ package com.example.database.dao
 
 import androidx.room.*
 import com.example.model.local.article.ArticleEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ArticleFavoriteDao {
@@ -12,7 +13,7 @@ interface ArticleFavoriteDao {
     suspend fun deleteFavorite(title: String)
 
     @Query("SELECT * FROM articles")
-    suspend fun getAllFavoriteArticles(): List<ArticleEntity>
+    fun getAllFavoriteArticles(): Flow<List<ArticleEntity>>
 
     @Query("SELECT EXISTS(SELECT 1 FROM articles WHERE title = :title LIMIT 1)")
     suspend fun isArticleExists(title: String): Boolean
