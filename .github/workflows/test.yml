@@ -19,12 +19,11 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Touch local properties
-        run: touch local.properties
-
-      - name: Add Api Key
-        run: echo "apiKey=\"\"" >> local.properties
-
+      - name: Update Username from Secrets
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: echo API_KEY="$API_KEY" > ./local.properties
+        
       # Execute unit tests
       - name: Unit Test
         run: ./gradlew testDebugUnitTest
