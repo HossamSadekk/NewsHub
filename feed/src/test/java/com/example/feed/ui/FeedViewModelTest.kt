@@ -2,6 +2,7 @@ package com.example.feed.ui
 
 import androidx.paging.PagingData
 import com.example.common.extension.DataState
+import com.example.common.mvvm.BaseViewState
 import com.example.feed.domain.use_case.GetArticlesUseCase
 import com.example.feed.domain.use_case.GetSourcesUseCase
 import com.example.feed.domain.use_case.GetTopHeadlinesUseCase
@@ -15,7 +16,8 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.*
 import org.junit.After
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 
@@ -60,10 +62,10 @@ class FeedViewModelTest {
             // Given
             val expectedArticles =
                 listOf(
-                    ArticleDto("", "", "", "", "", ""),
+                    ArticleDto("", "", "", "", "", "", ""),
                     ArticleDto(
                         "",
-                        "", "", "", "", ""
+                        "", "", "", "", "", ""
                     )
                 )
             val pagedTopHeadlines: Flow<PagingData<ArticleDto>> =
@@ -103,10 +105,10 @@ class FeedViewModelTest {
             // Given
             val expectedArticles =
                 listOf(
-                    ArticleDto("", "", "", "", "", ""),
+                    ArticleDto("", "", "", "", "", "", ""),
                     ArticleDto(
                         "",
-                        "", "", "", "", ""
+                        "", "", "", "", "", ""
                     )
                 )
             val selectedCategory = "All"
