@@ -16,7 +16,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run unit tests
-        run: ./gradlew testDebugUnitTest
+        run: ./gradlew :feed:testDebugUnitTest
 
   build:
     runs-on: ubuntu-latest
