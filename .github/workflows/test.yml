@@ -26,7 +26,7 @@ jobs:
         
       # Execute unit tests
       - name: Unit Test
-        run: ./gradlew :feed:test
+        run:  bash ./gradlew test --stacktrace
 
       - name: Android Test Report
         uses: asadmansr/android-test-report-action@v1.2.0
