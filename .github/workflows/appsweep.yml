@@ -10,6 +10,11 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
+      - name: Update Username from Secrets
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: echo API_KEY="$API_KEY" > ./local.properties
+
       - name: Upload app to AppSweep with Gradle
         env:
           APPSWEEP_API_KEY: ${{ secrets.APPSWEEP_API_KEY }}
