@@ -44,6 +44,8 @@ dependencies {
 
     kapt(DI.Hilt_Compiler)
     implementation(Local.Preferences_DataStore)
-
+    testImplementation(TestingLib.Junit)
+    testImplementation(TestingLib.coroutines_test)
+    testImplementation(AndroidTestingLib.JunitExt)
 
 }

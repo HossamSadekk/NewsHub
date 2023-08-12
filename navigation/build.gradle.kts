@@ -42,6 +42,11 @@ dependencies {
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
     kapt(DI.Hilt_Compiler)
-    implementation (project(Modules.MODEL))
+    implementation(project(Modules.MODEL))
+    testImplementation(TestingLib.mockwebserver)
+    testImplementation(TestingLib.Junit)
+    testImplementation(TestingLib.coroutines_test)
+    testImplementation(TestingLib.mockk)
+    testImplementation(AndroidTestingLib.JunitExt)
 
 }

@@ -42,8 +42,12 @@ dependencies {
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
     implementation(Local.room)
-    kapt (Local.room_compiler)
-    implementation ("androidx.room:room-ktx:2.5.2")
+    kapt(Local.room_compiler)
+    implementation("androidx.room:room-ktx:2.5.2")
     kapt(DI.Hilt_Compiler)
     implementation(project(Modules.MODEL))
+
+    testImplementation(TestingLib.Junit)
+    testImplementation(TestingLib.coroutines_test)
+    testImplementation(AndroidTestingLib.JunitExt)
 }

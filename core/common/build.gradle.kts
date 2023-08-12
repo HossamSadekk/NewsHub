@@ -55,7 +55,9 @@ dependencies {
     implementation(Animation.Lottie)
     implementation(project(Modules.MODEL))
     implementation(ImageLoader.coil)
-
+    testImplementation(TestingLib.Junit)
+    testImplementation(TestingLib.coroutines_test)
+    testImplementation(AndroidTestingLib.JunitExt)
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
 }

@@ -36,5 +36,7 @@ android {
 dependencies {
     implementation(Remote.retrofit2_converter)
     implementation("androidx.room:room-common:2.5.0")
-
+    testImplementation(TestingLib.Junit)
+    testImplementation(TestingLib.coroutines_test)
+    testImplementation(AndroidTestingLib.JunitExt)
 }
