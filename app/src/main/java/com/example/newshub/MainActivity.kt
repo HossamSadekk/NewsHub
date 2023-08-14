@@ -1,39 +1,32 @@
 package com.example.newshub
 
 import android.os.Bundle
-import android.util.Log
-import android.window.SplashScreen
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.HomeScreenDirections
 import com.NavigationManager
 import com.OnBoardingDirections
 import com.SplashScreenDirections
-import com.example.article_details.ui.ArticleDetailsEvent
 import com.example.newshub.navigation.RootNavigationGraph
 import com.example.newshub.ui.theme.NewsHubTheme
-import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.update
-import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @Inject
     lateinit var navigationManager: NavigationManager
+    private val viewModel: MainViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            NewsHubTheme {
+            NewsHubTheme(darkTheme = viewModel.theme.value) {
                 val navController = rememberNavController()
 
                 val onBackPressedCallback = object : OnBackPressedCallback(true) {
