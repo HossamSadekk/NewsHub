@@ -94,6 +94,8 @@ dependencies {
     implementation project(Modules.COMMON)
     implementation project(Modules.DATABASE)
     implementation project(Modules.SEARCH)
+    implementation project(Modules.SETTINGS)
+    implementation(project(Modules.STORAGE))
 
     // Import the BoM for the Firebase platform
     implementation(platform(Firebase.firebasebom))

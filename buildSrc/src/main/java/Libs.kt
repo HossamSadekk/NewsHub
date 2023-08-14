@@ -97,5 +97,6 @@ object Modules {
     const val SOURCE_CONTENT = ":source_content"
     const val SEARCH = ":search"
     const val FAVORITES = ":favorites"
+    const val SETTINGS = ":setting"
 
 }

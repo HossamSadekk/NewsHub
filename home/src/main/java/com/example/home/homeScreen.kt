@@ -16,6 +16,7 @@ import com.example.common.mvvm.SharedViewModel
 import com.example.favorites.ui.FavoriteScreen
 import com.example.feed.ui.FeedScreen
 import com.example.search.ui.SearchScreen
+import com.example.setting.ui.SettingScreen
 
 @Composable
 fun HomeScreen(sharedViewModel: SharedViewModel) {
@@ -37,6 +38,7 @@ fun HomeScreen(sharedViewModel: SharedViewModel) {
                 BottomBarItem.HOME -> FeedScreen(sharedViewModel = sharedViewModel)
                 BottomBarItem.SEARCH -> SearchScreen(sharedViewModel = sharedViewModel)
                 BottomBarItem.FAVORITE -> FavoriteScreen(sharedViewModel = sharedViewModel)
+                BottomBarItem.SETTINGS -> SettingScreen()
                 else -> {}
             }
         }
