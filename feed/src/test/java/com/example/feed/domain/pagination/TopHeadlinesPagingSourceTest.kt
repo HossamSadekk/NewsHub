@@ -2,17 +2,15 @@ package com.example.feed.domain.pagination
 
 import androidx.paging.PagingSource
 import com.example.feed.data.repository.FeedRepositoryImpl
-import com.example.model.dto.toArticleDtoList
 import com.example.model.remote.articles.Article
 import com.example.model.remote.articles.ArticlesResponse
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.*
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
 import java.io.IOException
 
 
@@ -25,7 +23,7 @@ class TopHeadlinesPagingSourceTest {
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
-        pagingSource = TopHeadlinesPagingSource(feedRepository)
+        pagingSource = TopHeadlinesPagingSource(feedRepository, countryCode = "us")
     }
     @Test
     fun testLoadSuccess() = runTest {
