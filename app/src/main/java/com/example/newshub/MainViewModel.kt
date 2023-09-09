@@ -10,18 +10,21 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val preferencesManager: PreferencesManager) :
+class MainViewModel @Inject constructor(
+    private val preferencesManager: PreferencesManager,
+) :
     ViewModel() {
 
     var theme: MutableState<Boolean> = mutableStateOf(false)
-    val flow = preferencesManager.themeState
+    val themeFlow = preferencesManager.themeState
 
     init {
         viewModelScope.launch {
-            flow.collect {
+            themeFlow.collect {
                 theme.value = it
             }
         }
     }
+
 
 }

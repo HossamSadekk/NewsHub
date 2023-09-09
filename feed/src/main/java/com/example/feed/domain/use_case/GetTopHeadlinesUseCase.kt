@@ -17,6 +17,11 @@ class GetTopHeadlinesUseCase @Inject constructor(private val repository: FeedRep
             config = PagingConfig(
                 pageSize = 20 // how many items per request, this value that will be passed into "params.loadSize" when we make our request.
             ),
-            pagingSourceFactory = { TopHeadlinesPagingSource(repository) }
+            pagingSourceFactory = {
+                TopHeadlinesPagingSource(
+                    repository,
+                    countryCode = parameter ?: ""
+                )
+            }
         ).flow
 }

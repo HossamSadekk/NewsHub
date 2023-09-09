@@ -1,5 +1,6 @@
 package com.example.feed.ui
 
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
@@ -11,6 +12,7 @@ import com.example.common.mvvm.Mvvm
 import com.example.feed.domain.use_case.GetArticlesUseCase
 import com.example.feed.domain.use_case.GetSourcesUseCase
 import com.example.feed.domain.use_case.GetTopHeadlinesUseCase
+import com.example.storage.pref.PreferencesManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -23,8 +25,9 @@ class FeedViewModel @Inject constructor(
     private val getTopHeadlinesUseCase: GetTopHeadlinesUseCase,
     private val getSourcesUseCase: GetSourcesUseCase,
     private val getArticlesUseCase: GetArticlesUseCase,
-    private val navigationManager: NavigationManager
-    ) :
+    private val navigationManager: NavigationManager,
+    private val preferencesManager: PreferencesManager
+) :
     Mvvm<FeedEvent>() {
     private val _uiState = MutableStateFlow<BaseViewState>(BaseViewState.Loading)
     val uiState: StateFlow<BaseViewState> = _uiState
@@ -41,10 +44,13 @@ class FeedViewModel @Inject constructor(
         _selectedCategory.value = value
     }
 
+    var countryCode: MutableState<String> = mutableStateOf("")
+    val flow = preferencesManager.countryState
+
 
     init {
+        getCountryCode()
         startLoading()
-        loadTopHeadlines()
         loadSources()
         loadArticles()
     }
@@ -75,17 +81,26 @@ class FeedViewModel @Inject constructor(
         }
     }
 
-    private fun navigateToDetails(){
+    private fun getCountryCode() = safeLaunch {
+        flow.collect {
+            countryCode.value = it
+            loadTopHeadlines()
+        }
+    }
+
+    private fun navigateToDetails() {
         val command = HomeScreenDirections.detailsScreen()
         navigationManager.navigate(command)
     }
-    private fun navigateToSourceContent(){
+
+    private fun navigateToSourceContent() {
         val command = HomeScreenDirections.sourceContentScreen
         navigationManager.navigate(command)
     }
 
     private fun loadTopHeadlines() = safeLaunch {
-        val pagedTopHeadlines = getTopHeadlinesUseCase().cachedIn(viewModelScope)
+        val pagedTopHeadlines =
+            getTopHeadlinesUseCase(parameter = countryCode.value).cachedIn(viewModelScope)
         _uiState.value = BaseViewState.Data
         _uiStateFeed.update {
             it.copy(topHeadlines = pagedTopHeadlines)
