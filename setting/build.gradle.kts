@@ -53,6 +53,7 @@ dependencies {
 
     implementation(project(Modules.STORAGE))
     implementation(project(mapOf("path" to ":navigation")))
+    implementation(project(Modules.MODEL))
     implementation(DI.Hilt)
     implementation(DI.Hilt_Navigation)
     implementation("androidx.test.ext:junit-ktx:1.1.5")

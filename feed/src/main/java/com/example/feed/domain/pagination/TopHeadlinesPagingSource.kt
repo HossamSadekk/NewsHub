@@ -8,14 +8,19 @@ import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
 
-class TopHeadlinesPagingSource @Inject constructor(private val feedRepository: FeedRepository) :
+class TopHeadlinesPagingSource
+@Inject
+constructor(
+    private val feedRepository: FeedRepository,
+    private val countryCode: String
+) :
     BasePagingSource<ArticleDto>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticleDto> {
         /** the position indicate to the number of page that we are need,but at the first time it will be null **/
         val position = params.key ?: 1
         return try {
             val response = feedRepository.getTopHeadlines(
-                country = "us",
+                country = countryCode,
                 pageSize = params.loadSize,
                 page = position
             )

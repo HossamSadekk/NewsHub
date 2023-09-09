@@ -8,8 +8,10 @@ import com.example.feed.domain.use_case.GetSourcesUseCase
 import com.example.feed.domain.use_case.GetTopHeadlinesUseCase
 import com.example.model.dto.article.ArticleDto
 import com.example.model.dto.sources.SourceDto
+import com.example.storage.pref.PreferencesManager
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
+import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
@@ -32,6 +34,9 @@ class FeedViewModelTest {
     @MockK
     private lateinit var getArticlesUseCase: GetArticlesUseCase
 
+    @RelaxedMockK
+    private lateinit var preferencesManager: PreferencesManager
+
     private lateinit var viewModel: FeedViewModel
     private val testDispatcher = TestCoroutineDispatcher()
 
@@ -45,8 +50,10 @@ class FeedViewModelTest {
             getTopHeadlinesUseCase,
             getSourcesUseCase,
             getArticlesUseCase,
-            mockk(relaxed = true) // mock the NavigationManager
+            mockk(relaxed = true), // mock the NavigationManager,
+            preferencesManager
         )
+
     }
 
     @After
@@ -70,7 +77,7 @@ class FeedViewModelTest {
                 )
             val pagedTopHeadlines: Flow<PagingData<ArticleDto>> =
                 flowOf(PagingData.from(expectedArticles))
-            every { getTopHeadlinesUseCase() } returns pagedTopHeadlines
+            every { getTopHeadlinesUseCase(any()) } returns pagedTopHeadlines
 
             // When
             viewModel.onTriggerEvent(FeedEvent.LoadTopHeadlines)
@@ -85,7 +92,7 @@ class FeedViewModelTest {
         runTest {
             // Given
             val expectedError = RuntimeException("Error occurred")
-            every { getTopHeadlinesUseCase() } throws expectedError
+            every { getTopHeadlinesUseCase(any()) } throws expectedError
 
             // When
             viewModel.onTriggerEvent(FeedEvent.LoadTopHeadlines)
@@ -140,18 +147,19 @@ class FeedViewModelTest {
     }
 
     @Test
-    fun `when success loadSources should update uiStateFeed with sources list & update uiState`() = runTest {
-        // Given
-        val sourcesList = listOf(SourceDto("",""),SourceDto("",""))
-        coEvery { getSourcesUseCase() } returns flowOf(DataState.Success(sourcesList))
+    fun `when success loadSources should update uiStateFeed with sources list & update uiState`() =
+        runTest {
+            // Given
+            val sourcesList = listOf(SourceDto("", ""), SourceDto("", ""))
+            coEvery { getSourcesUseCase() } returns flowOf(DataState.Success(sourcesList))
 
-        // When
-        viewModel.onTriggerEvent(FeedEvent.LoadSourcesList)
+            // When
+            viewModel.onTriggerEvent(FeedEvent.LoadSourcesList)
 
-        // Then
-        assertNotNull(viewModel.uiStateFeed.value.sourcesList)
-        assertEquals(viewModel.uiState.value, BaseViewState.Data)
-    }
+            // Then
+            assertNotNull(viewModel.uiStateFeed.value.sourcesList)
+            assertEquals(viewModel.uiState.value, BaseViewState.Data)
+        }
 
     @Test
     fun `when failed loadSources should update uiState with Error`() = runTest {
@@ -168,23 +176,24 @@ class FeedViewModelTest {
     }
 
     @Test
-    fun `refreshScreen should call loadTopHeadlines, loadSources, and loadArticles in the expected sequence`() = runBlockingTest {
-        // Given
-        val sourcesList = listOf(SourceDto("",""),SourceDto("",""))
+    fun `refreshScreen should call loadTopHeadlines, loadSources, and loadArticles in the expected sequence`() =
+        runBlockingTest {
+            // Given
+            val sourcesList = listOf(SourceDto("", ""), SourceDto("", ""))
 
-        coEvery { getTopHeadlinesUseCase() } returns flowOf(PagingData.empty())
-        coEvery { getSourcesUseCase() } returns flowOf(DataState.Success(sourcesList))
-        coEvery { getArticlesUseCase(any()) } returns flowOf(PagingData.empty())
+            coEvery { getTopHeadlinesUseCase() } returns flowOf(PagingData.empty())
+            coEvery { getSourcesUseCase() } returns flowOf(DataState.Success(sourcesList))
+            coEvery { getArticlesUseCase(any()) } returns flowOf(PagingData.empty())
 
-        // When
-        viewModel.onTriggerEvent(FeedEvent.RefreshScreen)
+            // When
+            viewModel.onTriggerEvent(FeedEvent.RefreshScreen)
 
-        // Then
-        coVerify {
-            getTopHeadlinesUseCase()
-            getSourcesUseCase()
-            getArticlesUseCase(any())
+            // Then
+            coVerify {
+                getTopHeadlinesUseCase(any())
+                getSourcesUseCase()
+                getArticlesUseCase(any())
+            }
         }
-    }
 
 }

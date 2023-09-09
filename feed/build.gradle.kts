@@ -59,6 +59,7 @@ dependencies {
     implementation(project(Modules.MODEL))
     implementation(project(Modules.REMOTE))
     implementation(project(Modules.COMMON))
+    implementation(project(Modules.STORAGE))
     implementation(project(mapOf("path" to ":navigation")))
     implementation(Remote.retrofit2_converter)
 
