@@ -12,3 +12,15 @@ News Hub is a news android app which offer a convenient and user-friendly way to
 <img alt="Jetpack Compose" src="https://img.shields.io/static/v1?style=for-the-badge&message=Jetpack+Compose&color=4285F4&logo=Jetpack+Compose&logoColor=FFFFFF&label="/></a> 
 <img alt="Gradle" src="https://img.shields.io/badge/gradle-7.4.2-blue.svg?style=for-the-badge"/></a>
 </p>
+</br>
+</br>
+
+## Goal 👀
+The goal of the project is to demonstrate best practices, provide a set of guidelines, and present modern Android application architecture that is modular, scalable, maintainable and testable. This application may look simple, but it has all of these small details that will set the rock-solid foundation of the larger app suitable for bigger teams and long application lifecycle management.
+</br>
+## Modularization 👨🏽‍💻
+Modularization in Android development is a software architectural approach that involves breaking down a monolithic Android application into smaller, self-contained modules or components. Each module is responsible for specific functionality, features, or layers of the application, making the codebase more organized, maintainable, and scalable. Modularization is a critical aspect of modern Android app development, and it offers several benefits to developers and teams.
+### Why Modularization Is Important
+-__Code Organization__: Modularization enables the organization of code into discrete modules, each with a specific responsibility. This makes it easier to find, read, and work with code, reducing complexity and improving code maintainability.
+
+
