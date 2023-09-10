@@ -28,6 +28,10 @@ object Animation {
     const val Lottie = "com.airbnb.android:lottie-compose:5.2.0"
 }
 
+object LeakMemory {
+    const val LeakCanary = "com.squareup.leakcanary:leakcanary-android:2.12"
+}
+
 object Navigation {
     const val NavigationCompose = "androidx.navigation:navigation-compose:2.5.3"
 }
