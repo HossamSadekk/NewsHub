@@ -10,8 +10,11 @@ class HttpRequestInterceptor: Interceptor {
         val originalRequest = chain.request()
         val request = originalRequest.newBuilder().url(originalRequest.url()).build()
         var response = chain.proceed(request)
-        if(response.code()==429){
+        if (response.code() == 429) {
             throw IOException("Rate limit exceeded")
+        }
+        if (response.code() == 401) {
+            throw IOException("Missing or Invalid Authentication Credentials")
         }
         response.close()
         Timber.d(request.toString())
