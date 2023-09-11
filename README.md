@@ -44,3 +44,16 @@ By adopting Clean Architecture with the Model-View-Intent (MVI) pattern in my An
 - __Testability__ : Components are highly testable. Use Cases, in particular, are testable in isolation, and UI logic is easier to unit test.
 - __Predictable State Management__ : MVI ensures that the UI's state is predictable and easy to reason about, reducing the chances of bugs and unexpected behavior.
 - __Scalability__ : Clean Architecture makes it easier to add new features or scale the app. MVI simplifies managing complex UI logic.
+
+# App Features 🎯
+
+- [x] Top Headlines is a core feature of any news app. It serves as the central hub where users can access a curated stream of the latest news articles and updates.
+- [x] Source Channels is a feature within the News Feed screen of a news app enhances the user experience by allowing users to customize their news sources and explore content from specific publishers, websites, or channels.
+- [x] News Categories is a valuable addition to your news app, allowing users to filter and explore news content based on their specific interests.
+- [x] Search for News Articles is a fundamental component of your news app, empowering users to find specific articles, topics, or keywords quickly.
+- [x] Favorite News Articles is a user-centric addition to your news app that allows users to curate and save their preferred articles for later reference.
+- [x] News Article Details is a feature provides users with in-depth information about a selected news article.
+- [x] Open Article Website is a feature empowers users to access the full article on the source website for a more comprehensive and detailed reading experience.
+- [x] App Theme Customization is a feature within the settings screen allows users to personalize the app's appearance and choose their preferred theme.
+- [x] Select Preferred Country for News is a feature within the settings screen empowers users to choose the country from which they want to receive news.
+- [ ] About feature.
