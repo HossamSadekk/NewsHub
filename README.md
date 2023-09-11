@@ -63,5 +63,6 @@ By adopting Clean Architecture with the Model-View-Intent (MVI) pattern in my An
 |   |   |   |
 |---|---|---|
 |   |
+|---|
 | ![1](https://firebasestorage.googleapis.com/v0/b/newshub-bd2eb.appspot.com/o/screenshots%2FsplashScreen.png?alt=media&token=97aac7be-31d7-4dd0-bec7-c6d34719fda5) | ![2](https://firebasestorage.googleapis.com/v0/b/newshub-bd2eb.appspot.com/o/screenshots%2FfeedScreen.png?alt=media&token=9eed5de5-42ee-45b2-8564-e5bd48a5eeb5) | ![3](https://firebasestorage.googleapis.com/v0/b/newshub-bd2eb.appspot.com/o/screenshots%2FsourceContentScreen.png?alt=media&token=f092cefd-9c29-4a3e-a747-e1289dcca513)
 | ![4](https://firebasestorage.googleapis.com/v0/b/newshub-bd2eb.appspot.com/o/screenshots%2FdetailsScreen.png?alt=media&token=59ad5d44-6701-4d04-bfac-387767a54e82) | ![5](https://firebasestorage.googleapis.com/v0/b/newshub-bd2eb.appspot.com/o/screenshots%2FsearchScreen.png?alt=media&token=24bfb589-7979-4644-befe-d0a4e485ddb2) | ![6](https://firebasestorage.googleapis.com/v0/b/newshub-bd2eb.appspot.com/o/screenshots%2FsettingScreen.png?alt=media&token=3dbd67d0-d5ea-4518-9b2c-6f1854130511) | ![7](https://firebasestorage.googleapis.com/v0/b/newshub-bd2eb.appspot.com/o/screenshots%2FfavoriteScreen.png?alt=media&token=fe616266-bef6-4fdb-bc80-6b6b77cc1025)
