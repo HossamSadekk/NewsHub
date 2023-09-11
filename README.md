@@ -45,7 +45,7 @@ By adopting Clean Architecture with the Model-View-Intent (MVI) pattern in my An
 - __Predictable State Management__ : MVI ensures that the UI's state is predictable and easy to reason about, reducing the chances of bugs and unexpected behavior.
 - __Scalability__ : Clean Architecture makes it easier to add new features or scale the app. MVI simplifies managing complex UI logic.
 
-# App Features 🎯
+## App Features 🎯
 
 - [x] Top Headlines is a core feature of any news app. It serves as the central hub where users can access a curated stream of the latest news articles and updates.
 - [x] Source Channels is a feature within the News Feed screen of a news app enhances the user experience by allowing users to customize their news sources and explore content from specific publishers, websites, or channels.
