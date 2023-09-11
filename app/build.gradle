@@ -32,7 +32,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         benchmark {
@@ -69,6 +70,7 @@ dependencies {
     implementation(SupportLib.ComposeUi)
     implementation(SupportLib.ComposeUiToolingPreview)
     implementation(SupportLib.ComposeMaterial)
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
 
     testImplementation(TestingLib.Junit)
     testImplementation(AndroidTestingLib.JunitExt)
