@@ -1,27 +1,16 @@
 package com.example.article_details.ui
 
 import android.annotation.SuppressLint
-import android.os.Build
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil.compose.rememberImagePainter
-import com.example.article_details.R
 import com.example.article_details.ui.component.*
 import com.example.common.utils.DateUtils
 import com.example.common.widget.popUpButton
@@ -78,10 +67,10 @@ fun DetailsContent(article: ArticleDto?,viewModel: ArticleDetailsViewModel) {
                     ImageCard(article?.urlToImage)
                     Spacer(modifier = Modifier.height(20.dp))
                     Text(
-                        modifier = Modifier.fillMaxHeight(),
+                        modifier = Modifier.fillMaxHeight().padding(start = 3.dp, end = 3.dp),
                         text = article?.description + article?.content,
                         style = MaterialTheme.typography.body1,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Justify
                     )
                     Spacer(modifier = Modifier.height(20.dp))
                     ShowFullDetailsButton(article?.urlWebsite?:"")

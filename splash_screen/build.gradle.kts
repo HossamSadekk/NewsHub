@@ -8,7 +8,6 @@ plugins {
 android {
     namespace = "com.example.splash_screen"
     compileSdk = 33
-
     defaultConfig {
         minSdk = 24
         targetSdk = 33
@@ -52,15 +51,20 @@ dependencies {
     implementation(SupportLib.ComposeUiToolingPreview)
     implementation(SupportLib.ComposeMaterial)
     implementation(Animation.Lottie)
-
+    androidTestImplementation(SupportLib.ComposeUijunit4)
     implementation(project(Modules.STORAGE))
     implementation(project(Modules.COMMON))
     implementation(project(mapOf("path" to ":navigation")))
+    implementation("androidx.test.ext:junit-ktx:1.1.5")
+    testImplementation(TestingLib.mockk)
+    androidTestImplementation("io.mockk:mockk-android:1.12.3")
 
     testImplementation(TestingLib.Junit)
     testImplementation(AndroidTestingLib.JunitExt)
     testImplementation(AndroidTestingLib.EspressoCore)
     testImplementation(AndroidTestingLib.ComposeTestJunit)
+    testImplementation(AndroidTestingLib.JunitExt)
+    androidTestImplementation("junit:junit:4.12")
     debugImplementation(AndroidComposeDebugLib.ComposeUiTooling)
     debugImplementation(AndroidComposeDebugLib.UiTestManifest)
 

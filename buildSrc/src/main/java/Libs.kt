@@ -4,6 +4,8 @@ object SupportLib {
     const val LifecycleRuntimeCompose = "androidx.lifecycle:lifecycle-runtime-compose:2.6.0-beta01"
     const val ActivityCompose = "androidx.activity:activity-compose:1.3.1"
     const val ComposeUi = "androidx.compose.ui:ui:1.2.0"
+    const val ComposeUijunit4 = "androidx.compose.ui:ui-test-junit4:1.2.0"
+
     const val ComposeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:1.2.0"
     const val ComposeMaterial = "androidx.compose.material:material:1.2.0"
     const val ComposeLifecycle = "androidx.lifecycle:lifecycle-runtime-compose:2.6.0"
@@ -14,6 +16,7 @@ object TestingLib {
     const val mockwebserver = "com.squareup.okhttp3:mockwebserver:4.11.0"
     const val coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2"
     const val mockk = "io.mockk:mockk:1.13.5"
+    const val mockkui = "io.mockk:mockk-android:1.13.5"
     const val turbine = "app.cash.turbine:turbine:1.0.0"
 }
 

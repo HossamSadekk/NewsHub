@@ -9,16 +9,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.splash_screen.presentation.SplashScreenViewModel
-import java.time.format.TextStyle
 
 @Composable
 fun SplashScreen(viewModel: SplashScreenViewModel = hiltViewModel()) {
@@ -32,6 +30,7 @@ fun SplashScreen(viewModel: SplashScreenViewModel = hiltViewModel()) {
         val logoAnimationState =
             animateLottieCompositionAsState(composition = composition)
         LottieAnimation(
+            modifier = Modifier.testTag("lottieAnimation"),
             composition = composition,
             progress = { logoAnimationState.progress }
         )
@@ -51,7 +50,8 @@ fun SplashScreen(viewModel: SplashScreenViewModel = hiltViewModel()) {
         )
         Text(
             text = "News Hub",
-            modifier = Modifier.align(Alignment.BottomCenter).padding(vertical = 22.dp),
+            modifier = Modifier.align(Alignment.BottomCenter).padding(vertical = 22.dp)
+                .testTag("NewsHubTxt"),
             style = MaterialTheme.typography.body2,
         )
         if (logoAnimationState.isAtEnd && logoAnimationState.isPlaying) {
