@@ -72,13 +72,15 @@ By adopting Clean Architecture with the Model-View-Intent (MVI) pattern in my An
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
 - [Kotlin DSL](https://github.com/gradle/kotlin-dsl-samples) - is a term used to describe a set of programming constructs and conventions in the Kotlin programming language that allow you to create code that feels more like a specialized language for a particular domain or problem.
 - [CoreKtx](https://developer.android.com/kotlin/ktx.html) - library is a part of Android's AndroidX library suite and provides Kotlin extensions (KTX) for various Android core components and utilities.
+- [Coroutines](https://kotlinlang.org/docs/coroutines-guide.html) - library for coroutines developed by JetBrains. It contains a number of high-level coroutine-enabled primitives that this guide covers, including launch, async, and others.
 - [Lifecycle Runtime KTX](https://kotlinlang.org/](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary)https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary) -  library is part of AndroidX and provides Kotlin extensions (KTX) for the Android Lifecycle runtime component. It's used for handling lifecycle-related events and data in Android applications, especially when using the Android ViewModel and LiveData components.
 - [Lifecycle Runtime Compose](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary) - library is part of AndroidX and is used to provide integration between the Android Lifecycle library and Jetpack Compose. It allows you to observe the lifecycle of Composables and execute certain actions when their lifecycle state changes.
 - [ComposeUi](https://developer.android.com/jetpack/compose) - is a library used for building user interfaces in Jetpack Compose, which is a modern Android UI toolkit for building native user interfaces.
 - [Compose Navigation](https://developer.android.com/jetpack/compose/navigation) - library provides a Compose-based way to handle navigation within your Android app. 
 - [Jetpack Compose UI Testing](https://developer.android.com/jetpack/compose/testing) - is a library used for testing Jetpack Compose UI components with JUnit 4 in Android applications. It provides utilities and tools for writing UI tests for Compose-based user interfaces using the JUnit 4 testing framework.
 - [Accompanist Pager](https://google.github.io/accompanist/pager/) - library is a part of the Accompanist library suite developed by Google. It provides a set of Jetpack Compose components for creating paged layouts, particularly useful for building swipeable pagers or carousels in your Android app's user interface.
-- [Accompanist Pager Indicators ](https://google.github.io/accompanist/pager/) - library is designed to simplify the creation of paged indicators in Jetpack Compose. 
+- [Accompanist Pager Indicators ](https://google.github.io/accompanist/pager/) - library is designed to simplify the creation of paged indicators in Jetpack Compose.
+- [Coil](https://coil-kt.github.io/coil/compose/) - Coil Compose is a powerful and efficient image loading library for Android apps, designed specifically for Jetpack Compose.
 - [JUnit](https://junit.org/junit4/) - JUnit is a testing framework that provides annotations and APIs for defining and running tests.
 - [AndroidX Test](https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/test-setup) - library is part of the AndroidX Test library suite. It provides an extension to JUnit for running Android instrumented tests.
 - [Coroutines Test](https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-test) - is a Kotlin library that provides utilities for testing code that uses Kotlin Coroutines.
@@ -97,8 +99,6 @@ By adopting Clean Architecture with the Model-View-Intent (MVI) pattern in my An
 - [OkHttp](https://square.github.io/okhttp/) - OkHttp is a popular open-source HTTP client for Java, Kotlin, and Android applications.
 - [GitHub Actions](https://docs.github.com/en/actions) - is a powerful and flexible CI/CD (Continuous Integration and Continuous Deployment) platform provided by GitHub.
 - [AppSweep](https://github.com/Guardsquare/appsweep-action) - used to continuously integrate app scanning using AppSweep into your Android app build process
-
 - [Timber](https://github.com/JakeWharton/timber) - Timber is a popular Android logging library created by Jake Wharton. It provides a flexible and efficient way to log messages and debug information in Android applications. 
-- [Coil](https://coil-kt.github.io/coil/compose/) - Coil Compose is a powerful and efficient image loading library for Android apps, designed specifically for Jetpack Compose.
 - [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) - Paging is a Jetpack library that helps you load and display large data sets, typically from a data source that provides chunks of data at a time, such as a network API or a local database. 
 
