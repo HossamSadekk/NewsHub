@@ -95,6 +95,9 @@ By adopting Clean Architecture with the Model-View-Intent (MVI) pattern in my An
 - [Retrofit](https://square.github.io/retrofit/) - HTTP client library for Android and Java that simplifies the process of making HTTP requests to web services or APIs.
 - [Gson Converter](https://github.com/square/retrofit/tree/master/retrofit-converters/gson) - The Retrofit Gson Converter is an optional extension for the Retrofit HTTP client library that provides support for Gson serialization and deserialization of JSON data. 
 - [OkHttp](https://square.github.io/okhttp/) - OkHttp is a popular open-source HTTP client for Java, Kotlin, and Android applications.
+- [GitHub Actions](https://docs.github.com/en/actions) - is a powerful and flexible CI/CD (Continuous Integration and Continuous Deployment) platform provided by GitHub.
+- [AppSweep](https://github.com/Guardsquare/appsweep-action) - used to continuously integrate app scanning using AppSweep into your Android app build process
+
 - [Timber](https://github.com/JakeWharton/timber) - Timber is a popular Android logging library created by Jake Wharton. It provides a flexible and efficient way to log messages and debug information in Android applications. 
 - [Coil](https://coil-kt.github.io/coil/compose/) - Coil Compose is a powerful and efficient image loading library for Android apps, designed specifically for Jetpack Compose.
 - [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) - Paging is a Jetpack library that helps you load and display large data sets, typically from a data source that provides chunks of data at a time, such as a network API or a local database. 
