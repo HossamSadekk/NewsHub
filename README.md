@@ -102,3 +102,11 @@ By adopting Clean Architecture with the Model-View-Intent (MVI) pattern in my An
 - [Timber](https://github.com/JakeWharton/timber) - Timber is a popular Android logging library created by Jake Wharton. It provides a flexible and efficient way to log messages and debug information in Android applications. 
 - [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) - Paging is a Jetpack library that helps you load and display large data sets, typically from a data source that provides chunks of data at a time, such as a network API or a local database. 
 
+# Project Setup 📝
+- Clone the repository by the following link and open the project in Android Studio or Git Bash
+- ```bash
+  https://github.com/HossamSadekk/NewsHub.git
+- Get Your Api Key From News API Website
+- ```bash
+  https://newsapi.org/
+- Add The Api Key Into `local.properties` file `API_KEY = a634077a509b4c1f8673049d418f6bea`
