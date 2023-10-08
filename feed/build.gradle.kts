@@ -74,6 +74,9 @@ dependencies {
 
     testImplementation(TestingLib.mockwebserver)
     testImplementation(TestingLib.Junit)
+    androidTestImplementation(TestingLib.Junit)
+    androidTestImplementation("io.mockk:mockk-android:1.12.3")
+    androidTestImplementation(SupportLib.ComposeUijunit4)
     testImplementation(TestingLib.coroutines_test)
     testImplementation(TestingLib.mockk)
     testImplementation(AndroidTestingLib.JunitExt)
