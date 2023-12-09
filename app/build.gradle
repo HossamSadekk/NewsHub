@@ -28,7 +28,7 @@ android {
     Properties localProperties = new Properties()
     localProperties.load(new FileInputStream(rootProject.file("local.properties")))
     defaultConfig {
-        buildConfigField "String", "API_KEY", "\"${localProperties.getProperty("APIKEY")}\""
+        buildConfigField "String", "API_KEY", "\"${localProperties.getProperty("API_KEY")}\""
     }
     buildTypes {
         release {
